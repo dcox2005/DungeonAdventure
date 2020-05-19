@@ -1,4 +1,6 @@
+package dungeon;
 
+import dungeon.*;
 
 /**
  * Title: DungeonCharacter.java
@@ -41,6 +43,7 @@ public abstract class DungeonCharacter implements Comparable
 	protected int attackSpeed;
 	protected double chanceToHit;
 	protected int damageMin, damageMax;
+	private Weapon weapon;
 
 	public int compareTo(Object o)
 	{

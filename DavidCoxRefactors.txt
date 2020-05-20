@@ -1,4 +1,16 @@
-Update 1.1.0 2020/05/19
+Update 1.0.2 2020/05/19
+HeroFactory
+-created factory for creation of Heros
+
+MonsterFactory
+-created factory for creation of Monsters
+
+Dungeon
+-removed chooseHero(), as the work was moved to the new HeroFactory
+-removed generateMonster(), as the work was moved to the new MonsterFactory
+
+
+Update 1.0.1 2020/05/19
 <<abstract>> DungeonCharacter
 -created getters/setters for all appropriate fields.
 -made fields private, concrete classes will use setters.

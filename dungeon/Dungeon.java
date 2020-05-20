@@ -52,8 +52,8 @@ public class Dungeon
 		Monster theMonster;
 		do
 		{
-		    theHero = chooseHero();
-		    theMonster = generateMonster();
+		    theHero = HeroFactory.createNewHero(); //chooseHero();
+		    theMonster = MonsterFactory.createMonster(); //generateMonster();
 			battle(theHero, theMonster);
 
 		}while (playAgain());
@@ -66,6 +66,7 @@ returns it.  It utilizes a polymorphic reference (Hero) to accomplish
 this task
 ---------------------------------------------------------------------*/
     
+/*    
 	public static Hero chooseHero()
 	{
 		int choice;
@@ -88,12 +89,14 @@ this task
 		}//end switch
 		
 	}//end chooseHero()
-
+*/
+    
 /*-------------------------------------------------------------------
 generateMonster randomly selects a Monster and returns it.  It utilizes
 a polymorphic reference (Monster) to accomplish this task.
 ---------------------------------------------------------------------*/
-	
+
+/*    
 	public static Monster generateMonster()
 	{
 		int choice;
@@ -112,7 +115,8 @@ a polymorphic reference (Monster) to accomplish this task.
 		}//end switch
 		
 	}//end generateMonster method
-
+*/
+    
 /*-------------------------------------------------------------------
 playAgain allows gets choice from user to play another game.  It returns
 true if the user chooses to continue, false otherwise.
@@ -166,3 +170,30 @@ user has the option of quitting.
 	}//end battle method
 
 }//end Dungeon class
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

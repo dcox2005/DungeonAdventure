@@ -1,7 +1,5 @@
 package dungeon;
 
-import dungeon.*;
-
 /**
  * Title: DungeonCharacter.java
  *
@@ -44,6 +42,7 @@ public abstract class DungeonCharacter implements Comparable
 	protected double chanceToHit;
 	protected int damageMin, damageMax;
 	private Weapon weapon;
+	
 
 	public int compareTo(Object o)
 	{
@@ -65,23 +64,6 @@ public abstract class DungeonCharacter implements Comparable
 		this.damageMax = damageMax;
 
 	}//end constructor
-
-//-----------------------------------------------------------------
-	public String getName()
-	{
-		return name;
-	}//end getName
-
-//-----------------------------------------------------------------
-	public int getHitPoints()
-	{
-		return hitPoints;
-	}//end getHitPoints
-//-----------------------------------------------------------------
-	public int getAttackSpeed()
-	{
-		return attackSpeed;
-	}//end getAttackSpeed
 
 
 /*-------------------------------------------------------
@@ -191,8 +173,141 @@ hero classes and externally
 
 	}//end attack method
 
-//-----------------------------------------------------------------
+
+/*----------------------------Setters-------------------------------------
+ */
+	
+	protected void setName(final String name)
+	{
+		if (name == null)
+			throw new IllegalArgumentException("name passed into DungeonCharacter setName was null");
+		
+		this.name = name;
+	}//end setName
+
+	protected void setHitPoints(final int hitPoints)
+	{
+		if (hitPoints <= 0)
+			throw new IllegalArgumentException("hitPoints passed into DungeonCharacter setHitPoints was 0 or less: " + hitPoints);
+		
+		this.hitPoints = hitPoints;
+	}//end setHitPoints
+	
+	public void setAttackSpeed(int attackSpeed) 
+	{
+		if (attackSpeed <= 0)
+			throw new IllegalArgumentException("attackSpeed passed into DungeonCharacter setAttackSpeed was 0 or less: " + attackSpeed);
+		
+		this.attackSpeed = attackSpeed;
+	}//end setAttackSpeed	
+	
+	public void setChanceToHit(final double chanceToHit) 
+	{
+		if (chanceToHit <= 0)
+			throw new IllegalArgumentException("chanceToHit passed into DungeonCharacter setChanceToHit was 0 or less: " + chanceToHit);
+		
+		this.chanceToHit = chanceToHit;
+	}//end setChanceToHit
+
+	public void setDamageMin(final int damageMin) 
+	{
+		if (damageMin <= 0)
+			throw new IllegalArgumentException("damageMin passed into DungeonCharacter setsetDamageMin was 0 or less: " + damageMin);
+		
+		this.damageMin = damageMin;
+	}//end setDamageMin	
+	
+	public void setDamageMax(final int damageMax) 
+	{
+		if (damageMax <= 0)
+			throw new IllegalArgumentException("damageMax passed into DungeonCharacter setDamageMax was 0 or less: " + damageMax);
+		
+		if (damageMax < damageMin)
+			throw new IllegalArgumentException("damageMax (" + damageMax + ") passed into DungeonCharacter setDamageMax was less than damageMin: " + this.damageMin);
+		
+		this.damageMax = damageMax;
+	}//end setDamageMax	
+
+	public void setWeapon(Weapon weapon) 
+	{
+		if (weapon == null)
+			throw new IllegalArgumentException("weapon object passed into DungeonCharacter setWeapon was null");
+		
+		this.weapon = weapon;
+	}//end setWeapon	
+
+/*----------------------------Getters-------------------------------------
+ */	
+	
+	public String getName()
+	{
+		return this.name;
+	}//end getName
+	
+	public int getHitPoints()
+	{
+		return this.hitPoints;
+	}//end getHitPoints	
+	
+	public int getAttackSpeed()
+	{
+		return this.attackSpeed;
+	}//end getAttackSpeed	
+	
+	public double getChanceToHit() 
+	{
+		return this.chanceToHit;
+	}//end getChanceToHit
+
+	public int getDamageMin() 
+	{
+		return this.damageMin;
+	}//end getDamageMin
+
+	public int getDamageMax() 
+	{
+		return this.damageMax;
+	}//end getDamageMax
+
+	public Weapon getWeapon() 
+	{
+		return this.weapon;
+	}//end getWeapon
+
+	
+	
 
 
+	
+	
+
+	
+	
+	
 
 }//end class Character
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,4 @@
+DungeonCharacter
+-created getters/setters for all appropriate fields.
+-made fields private, concrete classes will use setters.
+-added Weapon reference for character

@@ -17,7 +17,7 @@ public class MonsterFactory
 		switch (randomChoice)
 		{
 			case 1: 
-				return createOger();
+				return createOgre();
 			
 			case 2:
 				return createGremlin();
@@ -30,7 +30,7 @@ public class MonsterFactory
 		return null;
 	}//end createMonster()
 	
-	private static Monster createOger()
+	private static Monster createOgre()
 	{
 		return new Ogre();
 	}//end createOgre()

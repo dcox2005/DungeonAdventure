@@ -35,15 +35,13 @@ package dungeon;
 
 public abstract class DungeonCharacter implements Comparable
 {
-
-	protected String name;
-	protected int hitPoints;
-	protected int attackSpeed;
-	protected double chanceToHit;
-	protected int damageMin, damageMax;
+	private String name;
+	private int hitPoints;
+	private int attackSpeed;
+	private double chanceToHit;
+	private int damageMin, damageMax;
 	private Weapon weapon;
 	
-
 	public int compareTo(Object o)
 	{
 		return 1;
@@ -52,19 +50,18 @@ public abstract class DungeonCharacter implements Comparable
 //-----------------------------------------------------------------
 //explicit constructor to initialize instance variables -- it is called
 // by derived classes
-	public DungeonCharacter(String name, int hitPoints, int attackSpeed,
-				     double chanceToHit, int damageMin, int damageMax)
+	public DungeonCharacter(String name)
+//			, int hitPoints, int attackSpeed, double chanceToHit, int damageMin, int damageMax)
 	{
 
 		this.name = name;
-		this.hitPoints = hitPoints;
+/*		this.hitPoints = hitPoints;
 		this.attackSpeed = attackSpeed;
 		this.chanceToHit = chanceToHit;
 		this.damageMin = damageMin;
 		this.damageMax = damageMax;
-
+*/
 	}//end constructor
-
 
 /*-------------------------------------------------------
 addHitPoints is used to increment the hitpoints a dungeon character has
@@ -75,17 +72,16 @@ Returns: nothing
 This method calls: nothing
 This method is called by: heal method of monsters and Sorceress
 ---------------------------------------------------------*/
+	
 	public void addHitPoints(int hitPoints)
 	{
 		if (hitPoints <=0)
 			System.out.println("Hitpoint amount must be positive.");
+		
 		else
-		{
 			this.hitPoints += hitPoints;
-			//System.out.println("Remaining Hit Points: " + hitPoints);
-
-		}
-	}//end addHitPoints method
+		
+	}//end addHitPoints()
 
 /*-------------------------------------------------------
 subtractHitPoints is used to decrement the hitpoints a dungeon character has.
@@ -102,11 +98,13 @@ This method is called by: overridden versions in Hero and Monster
 	{
 		if (hitPoints <0)
 			System.out.println("Hitpoint amount must be positive.");
+		
 		else if (hitPoints >0)
 		{
 			this.hitPoints -= hitPoints;
 			if (this.hitPoints < 0)
 				this.hitPoints = 0;
+			
 			System.out.println(getName() + " hit " +
 								" for <" + hitPoints + "> points damage.");
 			System.out.println(getName() + " now has " +
@@ -116,9 +114,8 @@ This method is called by: overridden versions in Hero and Monster
 
 		if (this.hitPoints == 0)
 			System.out.println(name + " has been killed :-(");
-
-
-	}//end method
+		
+	}//end subtractHitPoints()
 
 /*-------------------------------------------------------
 isAlive is used to see if a character is still alive by checking hit points
@@ -128,7 +125,9 @@ Returns: true is hero is alive, false otherwise
 
 This method calls: nothing
 This method is called by: unknown (intended for external use)
----------------------------------------------------------*/
+---------------------------------------------------------
+*/
+	
     public boolean isAlive()
 	{
 	  return (hitPoints > 0);
@@ -146,34 +145,67 @@ This method calls: Math.random(), subtractHitPoints()
 This method is called by: overridden versions of the method in monster and
 hero classes and externally
 ---------------------------------------------------------*/
+    
 	public void attack(DungeonCharacter opponent)
 	{
 		boolean canAttack;
 		int damage;
-
 		canAttack = Math.random() <= chanceToHit;
-
 		if (canAttack)
 		{
 			damage = (int)(Math.random() * (damageMax - damageMin + 1))
 						+ damageMin ;
 			opponent.subtractHitPoints(damage);
-
-
-
 			System.out.println();
 		}//end if can attack
+		
 		else
 		{
-
 			System.out.println(getName() + "'s attack on " + opponent.getName() +
 								" failed!");
 			System.out.println();
 		}//end else
 
-	}//end attack method
+	}//end attack()
 
+/*----------------------------Getters-------------------------------------
+ */	
+	
+	public String getName()
+	{
+		return this.name;
+	}//end getName
+	
+	public int getHitPoints()
+	{
+		return this.hitPoints;
+	}//end getHitPoints	
+	
+	public int getAttackSpeed()
+	{
+		return this.attackSpeed;
+	}//end getAttackSpeed	
+	
+	public double getChanceToHit() 
+	{
+		return this.chanceToHit;
+	}//end getChanceToHit
 
+	public int getDamageMin() 
+	{
+		return this.damageMin;
+	}//end getDamageMin
+
+	public int getDamageMax() 
+	{
+		return this.damageMax;
+	}//end getDamageMax
+
+	public Weapon getWeapon() 
+	{
+		return this.weapon;
+	}//end getWeapon
+	
 /*----------------------------Setters-------------------------------------
  */
 	
@@ -236,43 +268,7 @@ hero classes and externally
 		this.weapon = weapon;
 	}//end setWeapon	
 
-/*----------------------------Getters-------------------------------------
- */	
-	
-	public String getName()
-	{
-		return this.name;
-	}//end getName
-	
-	public int getHitPoints()
-	{
-		return this.hitPoints;
-	}//end getHitPoints	
-	
-	public int getAttackSpeed()
-	{
-		return this.attackSpeed;
-	}//end getAttackSpeed	
-	
-	public double getChanceToHit() 
-	{
-		return this.chanceToHit;
-	}//end getChanceToHit
 
-	public int getDamageMin() 
-	{
-		return this.damageMin;
-	}//end getDamageMin
-
-	public int getDamageMax() 
-	{
-		return this.damageMax;
-	}//end getDamageMax
-
-	public Weapon getWeapon() 
-	{
-		return this.weapon;
-	}//end getWeapon
 
 	
 	

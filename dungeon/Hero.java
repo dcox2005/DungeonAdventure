@@ -27,23 +27,21 @@ package dungeon;
  * @version 1.0
  */
 
-
 public abstract class Hero extends DungeonCharacter
 {
-	protected double chanceToBlock;
-	protected int numTurns;
+	private double chanceToBlock;
+	private int numTurns;
 
-//-----------------------------------------------------------------
 //calls base constructor and gets name of hero from user
-  public Hero(String name, int hitPoints, int attackSpeed,
-				     double chanceToHit, int damageMin, int damageMax,
-					 double chanceToBlock)
-  {
-	super(name, hitPoints, attackSpeed, chanceToHit, damageMin, damageMax);
-	this.chanceToBlock = chanceToBlock;
-	readName();
-  }
-
+	public Hero(String name)
+//, int hitPoints, int attackSpeed, double chanceToHit, int damageMin, int damageMax,	 double chanceToBlock)
+	{
+		super(name); 
+//			hitPoints, attackSpeed, chanceToHit, damageMin, damageMax);
+//		this.chanceToBlock = chanceToBlock;
+		readName();
+	}//end constructor
+	
 /*-------------------------------------------------------
 readName obtains a name for the hero from the user
 
@@ -53,11 +51,12 @@ Returns: nothing
 This method calls: nothing
 This method is called by: hero constructor
 ---------------------------------------------------------*/
-  public void readName()
-  {
+	public void readName()
+	{
 		System.out.print("Enter character name: ");
-		name = Keyboard.readString();
-  }//end readName method
+//		name = Keyboard.readString();
+		this.setName(Keyboard.readString());
+	}//end readName()
 
 /*-------------------------------------------------------
 defend determines if hero blocks attack
@@ -68,12 +67,11 @@ Returns: true if attack is blocked, false otherwise
 This method calls: Math.random()
 This method is called by: subtractHitPoints()
 ---------------------------------------------------------*/
-  public boolean defend()
-  {
+	public boolean defend()
+	{
 		return Math.random() <= chanceToBlock;
-
-  }//end defend method
-
+	}//end defend()
+	
 /*-------------------------------------------------------
 subtractHitPoints checks to see if hero blocked attack, if so a message
 is displayed, otherwise base version of this method is invoked to
@@ -86,19 +84,18 @@ Returns: nothing
 This method calls: defend() or base version of method
 This method is called by: attack() from base class
 ---------------------------------------------------------*/
-public void subtractHitPoints(int hitPoints)
+	public void subtractHitPoints(int hitPoints)
 	{
 		if (defend())
 		{
-			System.out.println(name + " BLOCKED the attack!");
-		}
+//			System.out.println(name + " BLOCKED the attack!");
+			System.out.println(this.getName() + " BLOCKED the attack!");
+		}//end if
+		
 		else
-		{
 			super.subtractHitPoints(hitPoints);
-		}
-
-
-	}//end method
+		
+	}//end subtractHitPoints()
 
 /*-------------------------------------------------------
 battleChoices will be overridden in derived classes.  It computes the
@@ -114,13 +111,44 @@ This method is called by: external sources
 ---------------------------------------------------------*/
 	public void battleChoices(DungeonCharacter opponent)
 	{
-	    numTurns = attackSpeed/opponent.getAttackSpeed();
-
+//	    numTurns = attackSpeed/opponent.getAttackSpeed();
+		numTurns = this.getAttackSpeed()/opponent.getAttackSpeed();
 		if (numTurns == 0)
 			numTurns++;
 
 		System.out.println("Number of turns this round is: " + numTurns);
-
 	}//end battleChoices
 
+/*----------------------------Getters-------------------------------------
+ */
+	
+	public double getChanceToBlock() 
+	{
+		return this.chanceToBlock;
+	}//end getChanceToBlock
+
+	public int getNumTurns() 
+	{
+		return this.numTurns;
+	}//end getNumTurns
+	
+/*----------------------------Setters-------------------------------------
+*/	
+
+	public void setChanceToBlock(double chanceToBlock) 
+	{
+		if (chanceToBlock < 0)
+			throw new IllegalArgumentException("chanceToBlock passed into Hero setChanceToBlock was less than 0: " + chanceToBlock);
+		
+		this.chanceToBlock = chanceToBlock;
+	}//end setChanceToBlock
+
+	public void setNumTurns(int numTurns) 
+	{
+		if (numTurns < 0)
+			throw new IllegalArgumentException("numTurns passed into Hero setNumTurns was 0 or less: " + numTurns);
+		
+		this.numTurns = numTurns;
+	}//end setNumTurns
+	
 }//end Hero class

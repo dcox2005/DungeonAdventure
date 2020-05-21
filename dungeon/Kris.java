@@ -7,5 +7,9 @@ public class Kris implements Weapon
 	{
 		return "Kris";
 	}//end weaponName
-
+	@Override
+	public String weaponName() 
+	{
+		return " jabs his kris at ";
+	}
 }//end Kris

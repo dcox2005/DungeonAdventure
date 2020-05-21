@@ -1,11 +1,12 @@
 package dungeon;
 
+
 public class Fireball implements Weapon{
 	
-	private String name;
+private String name;
 	
 	public Fireball() {
-		this.name = " Fireball";
+		this.name = " fireball ";
 	}
 	
 	public String toString() {
@@ -15,7 +16,7 @@ public class Fireball implements Weapon{
 	@Override
 	public String weaponName() {
 		// TODO Auto-generated method stub
-		return this.name;
+		return null;
 	}
 
 }

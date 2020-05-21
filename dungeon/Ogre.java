@@ -24,6 +24,7 @@ public class Ogre extends Monster
 		this.setDamageMax(50);
 		this.setMinHeal(30);
 		this.setMaxHeal(50);
+		this.setWeapon(new Club());
     }//end constructor
 
 

@@ -22,15 +22,9 @@ public class Warrior extends Hero
 		this.setDamageMax(60);
 		this.setChanceToBlock(0.2);
 		this.setSpecialAbility(new CrushingBlow());
+		this.setWeapon(new MightySword());
     }//end constructor
 
-	public void attack(DungeonCharacter opponent)
-	{
-//		System.out.println(name + " swings a mighty sword at " +
-//							opponent.getName() + ":");
-		System.out.println(this.getName() + " swings a mighty sword at " + opponent.getName() + ":");
-		super.attack(opponent);
-	}//end override of attack method
 
    
 

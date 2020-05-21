@@ -128,7 +128,7 @@ This method is called by: external sources
 
 				    switch (choice)
 				    {
-					    case 1: attack(opponent);
+					    case 1: this.attack(opponent);
 					        break;
 					    case 2: this.specialAbility.preform(this, opponent);
 					        break;

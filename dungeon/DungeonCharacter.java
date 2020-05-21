@@ -154,7 +154,7 @@ hero classes and externally
 		canAttack = Math.random() <= chanceToHit;
 
 		if (canAttack){
-			System.out.println(name + weapon.toString() +
+			System.out.println(name + this.getWeapon().toString() +
 					opponent.getName() + ":");
 			damage = (int)(Math.random() * (damageMax - damageMin + 1))
 						+ damageMin ;

@@ -26,12 +26,6 @@ public class Ogre extends Monster
 		this.setMaxHeal(50);
     }//end constructor
 
-	public void attack(DungeonCharacter opponent)
-	{
-//		System.out.println(name + " slowly swings a club toward's " +
-//							opponent.getName() + ":");
-		System.out.println(this.getName() + " slowly swings a club towards " + opponent.getName() + ":");
-		super.attack(opponent);
-	}//end override of attack
+
 
 }//end Ogre class

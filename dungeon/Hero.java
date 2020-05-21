@@ -111,7 +111,7 @@ This method is called by: external sources
 ---------------------------------------------------------*/
 	public void battleChoices(DungeonCharacter opponent){
 		int choice;
-	    numTurns = attackSpeed/opponent.getAttackSpeed();
+	    numTurns = this.getAttackSpeed()/opponent.getAttackSpeed();
 
 		if (numTurns == 0)
 			numTurns++;

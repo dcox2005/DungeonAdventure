@@ -2,14 +2,20 @@ package dungeon;
 
 public class RustyBlade implements Weapon 
 {	
+private String name;
+	
+	public RustyBlade() {
+		this.name = " Rusty Blade ";
+	}
 	@Override
 	public String weaponName() 
 	{
-		return "Rusty Blade";
+		return this.name;
 	}//end weaponName
 	
 	@Override
 	public String toString() {
-	returns " slices a rusty sword at ";
+		String str = " slices a rusty sword at ";
+	return str;
 	}
 }//end RustyBlade

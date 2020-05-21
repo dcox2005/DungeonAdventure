@@ -2,13 +2,18 @@ package dungeon;
 
 public class Kris implements Weapon 
 {	
+private String name;
+	
+	public Kris() {
+		this.name = " Kris ";
+	}
 	@Override
 	public String weaponName() 
 	{
-		return "Kris";
+		return this.name;
 	}//end weaponName
 	@Override
-	public String weaponName() 
+	public String toString() 
 	{
 		return " jabs his kris at ";
 	}

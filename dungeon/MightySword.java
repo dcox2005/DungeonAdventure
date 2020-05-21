@@ -2,16 +2,20 @@ package dungeon;
 
 public class MightySword implements Weapon 
 {	
-	@Override
-	public String weaponName() 
-	{
-		return "Might Sword";
-	}//end weaponName
+private String name;
 	
-	@Override
-	public String weaponName() 
-	{
-		return " swings a mighty sword at ";
+	public MightySword() {
+		this.name = " Mighty Sword ";
 	}
+	@Override
+	public String toString() 
+	{
+		return "swings a mighty sword at ";
+	}//end 
+	
+	public String weaponName() {
+		return this.name;
+	}
+	
 
 }//end MightSword

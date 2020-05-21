@@ -25,12 +25,5 @@ public class Gremlin extends Monster
 		this.setMaxHeal(40);
     }//end constructor
 
-	public void attack(DungeonCharacter opponent)
-	{
-//		System.out.println(name + " jabs his kris at " +
-//							opponent.getName() + ":");
-		System.out.println(this.getName() + " jabs his kris at " + opponent.getName() + ":");
-		super.attack(opponent);
-	}//end override of attack
 
 }//end Gremlin class

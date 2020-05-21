@@ -25,12 +25,6 @@ public class Skeleton extends Monster
 		this.setMaxHeal(50);
     }//end constructor
 
-	public void attack(DungeonCharacter opponent)
-	{
-//		System.out.println(name + " slices his rusty blade at " +
-//							opponent.getName() + ":");
-		System.out.println(this.getName() + " slices his rusty blade at " + opponent.getName() + ":");
-		super.attack(opponent);
-	}//end override of attack
+	
 
 }//end Skeleton class

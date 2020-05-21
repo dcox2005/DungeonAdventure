@@ -135,11 +135,11 @@ This method is called by: external sources
 					        System.out.println("invalid choice!");
 				    }//end switch
 
-					numTurns--;
-					if (numTurns > 0)
-					    System.out.println("Number of turns remaining is: " + numTurns);
+					 this.setNumTurns(this.getNumTurns() - 1);
+			if (this.getNumTurns() > 0)
+			    System.out.println("Number of turns remaining is: " + this.getNumTurns());
 
-				} while(numTurns > 0);
+		}while(this.getNumTurns() > 0);
 
 		    }//end battleChoices method
 

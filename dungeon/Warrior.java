@@ -21,27 +21,8 @@ public class Warrior extends Hero
 		this.setDamageMin(35);
 		this.setDamageMax(60);
 		this.setChanceToBlock(0.2);
+		this.setSpecialAbility(new CrushingBlow());
     }//end constructor
-
-	public void crushingBlow(DungeonCharacter opponent)
-	{
-		if (Math.random() <= .4)
-		{
-			int blowPoints = (int)(Math.random() * 76) + 100;
-//			System.out.println(name + " lands a CRUSHING BLOW for " + blowPoints
-//								+ " damage!");
-			System.out.println(this.getName() + " lands a CRUSHING BLOW for " + blowPoints + " damage!");
-			opponent.subtractHitPoints(blowPoints);
-		}//end blow succeeded
-		
-		else
-		{
-//			System.out.println(name + " failed to land a crushing blow");
-			System.out.println(this.getName() + " failed to land a crushing blow");
-			System.out.println();
-		}//blow failed
-
-	}//end crushingBlow method
 
 	public void attack(DungeonCharacter opponent)
 	{

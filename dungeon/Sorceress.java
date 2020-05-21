@@ -24,20 +24,6 @@ public class Sorceress extends Hero
 		this.setDamageMin(25);
 		this.setDamageMax(50);
 		this.setChanceToBlock(0.3);
+		this.setSpecialAbility(new SelfHeal(MIN_ADD, MAX_ADD));
     }//end constructor
-
-	public void increaseHitPoints()
-    {
-	    int hPoints;
-		hPoints = (int)(Math.random() * (MAX_ADD - MIN_ADD + 1)) + MIN_ADD;
-		addHitPoints(hPoints);
-/*		System.out.println(name + " added [" + hPoints + "] points.\n"
-							+ "Total hit points remaining are: "
-							+ hitPoints);
-*/		System.out.println(this.getName() + " added [" + hPoints + "] points.\n" + "Total hit points remaining are: " + this.getHitPoints());
-		System.out.println();
-    }//end increaseHitPoints()
-
-
-
 }//end Sorceress class

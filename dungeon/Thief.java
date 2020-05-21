@@ -21,32 +21,6 @@ public class Thief extends Hero
 		this.setDamageMin(20);
 		this.setDamageMax(40);
 		this.setChanceToBlock(0.5);
+		this.setSpecialAbility(new SupriseAttack());
     }//end constructor
-
-	public void surpriseAttack(DungeonCharacter opponent)
-	{
-		double surprise = Math.random();
-		if (surprise <= .4)
-		{
-/*			System.out.println("Surprise attack was successful!\n" +
-								name + " gets an additional turn.");
-			numTurns++;
-*/
-			System.out.println("Surprise attack was successful!\n" + this.getName() + " gets an additional turn.");
-			this.setNumTurns(this.getNumTurns() + 1);
-			attack(opponent);
-		}//end surprise
-		
-		else if (surprise >= .9)
-		{
-			System.out.println("Uh oh! " + opponent.getName() + " saw you and" +
-								" blocked your attack!");
-		}//end else if
-		
-		else
-		    attack(opponent);
-		
-	}//end surpriseAttack method
-
-    
 }//end Thief class

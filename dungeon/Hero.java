@@ -31,6 +31,7 @@ public abstract class Hero extends DungeonCharacter
 {
 	private double chanceToBlock;
 	private int numTurns;
+	private SpecialAbility specialAbility;
 
 //calls base constructor and gets name of hero from user
 	public Hero(String name)
@@ -129,7 +130,7 @@ This method is called by: external sources
 				    {
 					    case 1: attack(opponent);
 					        break;
-					    case 2: this.specialAbility.preform(opponent);
+					    case 2: this.specialAbility.preform(this, opponent);
 					        break;
 					    default:
 					        System.out.println("invalid choice!");
@@ -175,4 +176,7 @@ This method is called by: external sources
 		this.numTurns = numTurns;
 	}//end setNumTurns
 	
+	public void setSpecialAbility(SpecialAbility specialAbility) {
+		this.specialAbility = specialAbility;
+	}
 }//end Hero class

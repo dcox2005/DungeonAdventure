@@ -11,9 +11,9 @@ package dungeon;
 
 public class Warrior extends Hero
 {
-    public Warrior()
+    public Warrior(String userName)
 	{
-		super("Warrior");
+		super("userName");
 //		, 125, 4, .8, 35, 60, .2);
 		this.setHitPoints(125);
 		this.setAttackSpeed(4);

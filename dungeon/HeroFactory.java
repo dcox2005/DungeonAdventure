@@ -16,16 +16,17 @@ public class HeroFactory
 				   "2. Sorceress\n" +
 				   "3. Thief");
 		userChoice = Keyboard.readInt();
+		String userName = createUserName();
 		switch (userChoice)
 		{
 			case 1: 
-				return createWarrior();
+				return createWarrior(userName);
 		
 			case 2: 
-				return createSorceress();
+				return createSorceress(userName);
 		
 			case 3: 
-				return createThief();
+				return createThief(userName);
 		
 			default:
 			{
@@ -38,19 +39,25 @@ public class HeroFactory
 		
 	}//end createNewHero
 	
-	private static Hero createWarrior()
+	private static Hero createWarrior(String userName)
 	{
-		return new Warrior();
+		return new Warrior(userName);
 	}//end createWarrior
 	
-	private static Hero createSorceress()
+	private static Hero createSorceress(String userName)
 	{
-		return new Sorceress();
+		return new Sorceress(userName);
 	}//end createSorceress
 	
-	private static Hero createThief()
+	private static Hero createThief(String userName)
 	{
-		return new Thief();
+		return new Thief(userName);
 	}//end createTheif
 
+	public static String createUserName()
+	{
+		System.out.print("Enter character name: ");
+		return Keyboard.readString();
+	}//end readName()
+	
 }//end HeroFactory

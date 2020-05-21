@@ -7,5 +7,11 @@ public class MightySword implements Weapon
 	{
 		return "Might Sword";
 	}//end weaponName
+	
+	@Override
+	public String weaponName() 
+	{
+		return " swings a mighty sword at ";
+	}
 
 }//end MightSword

@@ -7,5 +7,9 @@ public class RustyBlade implements Weapon
 	{
 		return "Rusty Blade";
 	}//end weaponName
-
+	
+	@Override
+	public String toString() {
+	returns " slices a rusty sword at ";
+	}
 }//end RustyBlade

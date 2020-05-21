@@ -38,46 +38,6 @@ public class Sorceress extends Hero
 		System.out.println();
     }//end increaseHitPoints()
 
-	public void attack(DungeonCharacter opponent)
-	{
-/*		System.out.println(name + " casts a spell of fireball at " +
-							opponent.getName() + ":");
-*/		System.out.println(this.getName() + " casts a spell of fireball at " + opponent.getName() + ":");
-		super.attack(opponent);
-	}//end attack()
 
-    public void battleChoices(DungeonCharacter opponent)
-	{
-		super.battleChoices(opponent);
-		int choice;
-		do
-		{
-		    System.out.println("1. Attack Opponent");
-		    System.out.println("2. Increase Hit Points");
-		    System.out.print("Choose an option: ");
-		    choice = Keyboard.readInt();
-		    switch (choice)
-		    {
-			    case 1: attack(opponent);
-			        break;
-			    case 2: increaseHitPoints();
-			        break;
-			    default:
-			        System.out.println("invalid choice!");
-		    }//end switch
-
-/*			numTurns--;
-		    if (numTurns > 0)
-			    System.out.println("Number of turns remaining is: " + numTurns);
-
-		} while(numTurns > 0 && hitPoints > 0 && opponent.getHitPoints() > 0);
-*/
-		    this.setNumTurns(this.getNumTurns() - 1);
-		    if (this.getNumTurns() > 0)
-			    System.out.println("Number of turns remaining is: " + this.getNumTurns());
-
-		} while(this.getNumTurns() > 0 && this.getHitPoints() > 0 && opponent.getHitPoints() > 0);
-		    
-    }//end battleChoices()
 
 }//end Sorceress class

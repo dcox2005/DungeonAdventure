@@ -158,7 +158,7 @@ hero classes and externally
 					opponent.getName() + ":");
 			damage = (int)(Math.random() * (damageMax - damageMin + 1))
 						+ damageMin ;
-			opponent.subtractHitPoints(damage);
+			opponent.getAttacked(damage);
 			System.out.println();
 		}//end if can attack
 		else{
@@ -168,6 +168,8 @@ hero classes and externally
 		}//end else
 
 	}//end attack method
+	
+	public abstract void getAttacked(int damage);
 
 /*----------------------------Getters-------------------------------------
  */	

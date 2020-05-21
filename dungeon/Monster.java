@@ -24,25 +24,22 @@ public abstract class Monster extends DungeonCharacter
 //		this.minHeal = minHeal;
 	}//end monster construcotr
 
-	public void heal()
+	private void heal()
 	{
 		boolean canHeal;
 		int healPoints;
-//		canHeal = (Math.random() <= chanceToHeal) && (hitPoints > 0);
 		canHeal = (Math.random() <= chanceToHeal) && (this.getHitPoints() > 0);
 		if (canHeal)
 		{
 			healPoints = (int)(Math.random() * (maxHeal - minHeal + 1)) + minHeal;
 			addHitPoints(healPoints);
-//			System.out.println(name + " healed itself for " + healPoints + " points.\n"
-//							+ "Total hit points remaining are: " + hitPoints);
 			System.out.println(this.getName() + " healed itself for " + healPoints + " points.\n" + "Total hit points remaining are: " + this.getHitPoints());
 			System.out.println();
 		}//end can heal
 
 	}//end heal()
 
-	public void subtractHitPoints(int hitPoints)
+	public void getAttacked(int hitPoints)
 	{
 		super.subtractHitPoints(hitPoints);
 		heal();

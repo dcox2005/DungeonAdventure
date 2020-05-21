@@ -48,7 +48,7 @@ Returns: true if attack is blocked, false otherwise
 This method calls: Math.random()
 This method is called by: subtractHitPoints()
 ---------------------------------------------------------*/
-	public boolean defend()
+	private boolean defend()
 	{
 		return Math.random() <= chanceToBlock;
 	}//end defend()
@@ -65,7 +65,7 @@ Returns: nothing
 This method calls: defend() or base version of method
 This method is called by: attack() from base class
 ---------------------------------------------------------*/
-	public void subtractHitPoints(int hitPoints)
+	public void getAttacked(int hitPoints)
 	{
 		if (defend())
 		{

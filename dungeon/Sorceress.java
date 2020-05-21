@@ -17,7 +17,6 @@ public class Sorceress extends Hero
     public Sorceress(String userName)
 	{
 		super(userName);
-//		, 75, 5, .7, 25, 50, .3);
 		this.setHitPoints(75);
 		this.setAttackSpeed(5);
 		this.setChanceToHit(0.7);
@@ -27,4 +26,5 @@ public class Sorceress extends Hero
 		this.setSpecialAbility(new SelfHeal(MIN_ADD, MAX_ADD));
 		this.setWeapon(new Fireball());
     }//end constructor
+    
 }//end Sorceress class

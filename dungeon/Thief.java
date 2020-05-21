@@ -14,7 +14,6 @@ public class Thief extends Hero
     public Thief(String userName)
 	{
 		super(userName);
-//		, 75, 6, .8, 20, 40, .5);
 		this.setHitPoints(75);
 		this.setAttackSpeed(6);
 		this.setChanceToHit(0.8);
@@ -24,4 +23,5 @@ public class Thief extends Hero
 		this.setSpecialAbility(new SupriseAttack());
 		this.setWeapon(new Kris());
     }//end constructor
+    
 }//end Thief class

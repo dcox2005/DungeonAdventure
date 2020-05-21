@@ -35,29 +35,9 @@ public abstract class Hero extends DungeonCharacter
 
 //calls base constructor and gets name of hero from user
 	public Hero(String name)
-//, int hitPoints, int attackSpeed, double chanceToHit, int damageMin, int damageMax,	 double chanceToBlock)
 	{
 		super(name); 
-//			hitPoints, attackSpeed, chanceToHit, damageMin, damageMax);
-//		this.chanceToBlock = chanceToBlock;
-		readName();
 	}//end constructor
-	
-/*-------------------------------------------------------
-readName obtains a name for the hero from the user
-
-Receives: nothing
-Returns: nothing
-
-This method calls: nothing
-This method is called by: hero constructor
----------------------------------------------------------*/
-	public void readName()
-	{
-		System.out.print("Enter character name: ");
-//		name = Keyboard.readString();
-		this.setName(Keyboard.readString());
-	}//end readName()
 
 /*-------------------------------------------------------
 defend determines if hero blocks attack
@@ -89,7 +69,6 @@ This method is called by: attack() from base class
 	{
 		if (defend())
 		{
-//			System.out.println(name + " BLOCKED the attack!");
 			System.out.println(this.getName() + " BLOCKED the attack!");
 		}//end if
 		
@@ -178,5 +157,6 @@ This method is called by: external sources
 	
 	public void setSpecialAbility(SpecialAbility specialAbility) {
 		this.specialAbility = specialAbility;
-	}
+	}//end setSpecialAbility()
+	
 }//end Hero class

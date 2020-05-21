@@ -13,7 +13,7 @@ public class Warrior extends Hero
 {
     Warrior(String userName)
 	{
-		super("userName");
+		super(userName);
 		this.setHitPoints(125);
 		this.setAttackSpeed(4);
 		this.setChanceToHit(0.8);

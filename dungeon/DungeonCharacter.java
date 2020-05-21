@@ -150,23 +150,24 @@ hero classes and externally
 	{
 		boolean canAttack;
 		int damage;
+
 		canAttack = Math.random() <= chanceToHit;
-		if (canAttack)
-		{
+
+		if (canAttack){
+			System.out.println(name + weapon.toString() +
+					opponent.getName() + ":");
 			damage = (int)(Math.random() * (damageMax - damageMin + 1))
 						+ damageMin ;
 			opponent.subtractHitPoints(damage);
 			System.out.println();
 		}//end if can attack
-		
-		else
-		{
+		else{
 			System.out.println(getName() + "'s attack on " + opponent.getName() +
 								" failed!");
 			System.out.println();
 		}//end else
 
-	}//end attack()
+	}//end attack method
 
 /*----------------------------Getters-------------------------------------
  */	

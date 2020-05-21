@@ -109,15 +109,39 @@ Returns: nothing
 This method calls: getAttackSpeed()
 This method is called by: external sources
 ---------------------------------------------------------*/
-	public void battleChoices(DungeonCharacter opponent)
-	{
-//	    numTurns = attackSpeed/opponent.getAttackSpeed();
-		numTurns = this.getAttackSpeed()/opponent.getAttackSpeed();
+	public void battleChoices(DungeonCharacter opponent){
+		int choice;
+	    numTurns = attackSpeed/opponent.getAttackSpeed();
+
 		if (numTurns == 0)
 			numTurns++;
 
 		System.out.println("Number of turns this round is: " + numTurns);
-	}//end battleChoices
+
+				do
+				{
+				    System.out.println("1. Attack Opponent");
+				    System.out.println("2. " + this.specialAbility.getName());
+				    System.out.print("Choose an option: ");
+				    choice = Keyboard.readInt();
+
+				    switch (choice)
+				    {
+					    case 1: attack(opponent);
+					        break;
+					    case 2: this.specialAbility.preform(opponent);
+					        break;
+					    default:
+					        System.out.println("invalid choice!");
+				    }//end switch
+
+					numTurns--;
+					if (numTurns > 0)
+					    System.out.println("Number of turns remaining is: " + numTurns);
+
+				} while(numTurns > 0);
+
+		    }//end battleChoices method
 
 /*----------------------------Getters-------------------------------------
  */

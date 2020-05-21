@@ -14,7 +14,7 @@ public class Sorceress extends Hero
 	public final int MIN_ADD = 25;
 	public final int MAX_ADD = 50;
 
-    public Sorceress(String userName)
+    Sorceress(String userName)
 	{
 		super(userName);
 		this.setHitPoints(75);

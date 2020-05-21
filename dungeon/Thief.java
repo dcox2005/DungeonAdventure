@@ -11,7 +11,7 @@ package dungeon;
 
 public class Thief extends Hero
 {
-    public Thief(String userName)
+    Thief(String userName)
 	{
 		super(userName);
 		this.setHitPoints(75);

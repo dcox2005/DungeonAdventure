@@ -34,7 +34,7 @@ public abstract class Hero extends DungeonCharacter
 	private SpecialAbility specialAbility;
 
 //calls base constructor and gets name of hero from user
-	public Hero(String name)
+	protected Hero(String name)
 	{
 		super(name); 
 	}//end constructor

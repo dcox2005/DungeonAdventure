@@ -1,0 +1,17 @@
+1. Created HeroFactory
+
+2. Created MonsterFactory
+
+3. Created SpecialAblity Interface
+
+4. Created Weapon Interface
+
+5. Cleaned up un-needed comments.
+
+6. Updated attack method, only DungeonCharcter has one now
+
+7. Changed visiblity on classes and fields to package and private
+
+8. Changed methods in Hero/Monster classes to have a more intent revealing name
+
+9. Removed comparable & compareTo from DungeonCharacter

@@ -3,7 +3,7 @@ Update 1.0.3 2020/05/21
 -Updated all Hero concrete classes to take a String name for an argument
 -Updated Hero/Monster classes method subtractHitPoints to isAttack. Made it abstract in DungeonCharacter
 -Updated all DungeonCharacter classes and below to get rid of unneeded code and comments.
-
+-Removed unneeded comments and commented out code from all classes.
 
 Update 1.0.2 2020/05/19
 HeroFactory

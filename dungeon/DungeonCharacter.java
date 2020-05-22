@@ -47,7 +47,6 @@ public abstract class DungeonCharacter
 // by derived classes
 	public DungeonCharacter(String name)
 	{
-
 		this.name = name;
 	}//end constructor
 

@@ -1,0 +1,185 @@
+Choose a hero:
+1. Warrior
+2. Sorceress
+3. Thief
+2
+Enter character name: Jessica
+Jessica battles Oscar the Ogre
+---------------------------------------------
+Number of turns this round is: 2
+1. Attack Opponent
+2. Self Heal
+Choose an option: 1
+Jessica casts a spell of fireball at Oscar the Ogre:
+Oscar the Ogre hit  for <42> points damage.
+Oscar the Ogre now has 158 hit points remaining.
+
+
+Number of turns remaining is: 1
+1. Attack Opponent
+2. Self Heal
+Choose an option: 1
+Jessica casts a spell of fireball at Oscar the Ogre:
+Oscar the Ogre hit  for <44> points damage.
+Oscar the Ogre now has 114 hit points remaining.
+
+
+Oscar the Ogre's attack on Jessica failed!
+
+
+-->q to quit, anything else to continue: 1
+Number of turns this round is: 2
+1. Attack Opponent
+2. Self Heal
+Choose an option: 1
+Jessica's attack on Oscar the Ogre failed!
+
+Number of turns remaining is: 1
+1. Attack Opponent
+2. Self Heal
+Choose an option: 1
+Jessica casts a spell of fireball at Oscar the Ogre:
+Oscar the Ogre hit  for <30> points damage.
+Oscar the Ogre now has 84 hit points remaining.
+
+
+Oscar the Ogre slowly swings a club toward's Jessica:
+Jessica hit  for <31> points damage.
+Jessica now has 44 hit points remaining.
+
+
+
+-->q to quit, anything else to continue: 1
+Number of turns this round is: 2
+1. Attack Opponent
+2. Self Heal
+Choose an option: 2
+Jessica added [41] points.
+Total hit points remaining are: 85
+
+Number of turns remaining is: 1
+1. Attack Opponent
+2. Self Heal
+Choose an option: 2
+Jessica added [44] points.
+Total hit points remaining are: 129
+
+Oscar the Ogre's attack on Jessica failed!
+
+
+-->q to quit, anything else to continue: 1
+Number of turns this round is: 2
+1. Attack Opponent
+2. Self Heal
+Choose an option: 1
+Jessica casts a spell of fireball at Oscar the Ogre:
+Oscar the Ogre hit  for <25> points damage.
+Oscar the Ogre now has 59 hit points remaining.
+
+
+Number of turns remaining is: 1
+1. Attack Opponent
+2. Self Heal
+Choose an option: 1
+Jessica casts a spell of fireball at Oscar the Ogre:
+Oscar the Ogre hit  for <37> points damage.
+Oscar the Ogre now has 22 hit points remaining.
+
+
+Oscar the Ogre slowly swings a club toward's Jessica:
+Jessica BLOCKED the attack!
+
+
+-->q to quit, anything else to continue: 1
+Number of turns this round is: 2
+1. Attack Opponent
+2. Self Heal
+Choose an option: 1
+Jessica casts a spell of fireball at Oscar the Ogre:
+Oscar the Ogre hit  for <27> points damage.
+Oscar the Ogre now has 0 hit points remaining.
+
+Oscar the Ogre has been killed :-(			*******************It asks to attack again when the enemy is dead and we still have turns left**********************
+
+Number of turns remaining is: 1
+1. Attack Opponent
+2. Self Heal
+Choose an option: 1
+Jessica's attack on Oscar the Ogre failed!
+
+
+-->q to quit, anything else to continue: 
+
+
+
+
+
+
+Choose a hero:
+1. Warrior
+2. Sorceress
+3. Thief
+3
+Enter character name: Ninja
+Ninja battles Gnarltooth the Gremlin
+---------------------------------------------
+Number of turns this round is: 1
+1. Attack Opponent
+2. Suprise Attack
+Choose an option: 2
+Uh oh! Gnarltooth the Gremlin saw you and blocked your attack!
+Gnarltooth the Gremlin's attack on Ninja failed!
+
+
+-->q to quit, anything else to continue: 1
+Number of turns this round is: 1
+1. Attack Opponent
+2. Suprise Attack
+Choose an option: 2
+Surprise attack was successful!
+Suprise Attack gets an additional turn.
+Ninja jabs his kris at Gnarltooth the Gremlin:
+Gnarltooth the Gremlin hit  for <40> points damage.
+Gnarltooth the Gremlin now has 30 hit points remaining.
+
+
+Number of turns remaining is: 1
+1. Attack Opponent
+2. Suprise Attack
+Choose an option: 2
+Surprise attack was successful!
+Suprise Attack gets an additional turn.
+Ninja's attack on Gnarltooth the Gremlin failed!
+
+Number of turns remaining is: 1
+1. Attack Opponent
+2. Suprise Attack
+Choose an option: 2
+Surprise attack was successful!
+Suprise Attack gets an additional turn.
+Ninja's attack on Gnarltooth the Gremlin failed!
+
+Number of turns remaining is: 1
+1. Attack Opponent
+2. Suprise Attack
+Choose an option: 2
+Surprise attack was successful!
+Suprise Attack gets an additional turn.
+Ninja jabs his kris at Gnarltooth the Gremlin:
+Gnarltooth the Gremlin hit  for <30> points damage.
+Gnarltooth the Gremlin now has 0 hit points remaining.
+
+Gnarltooth the Gremlin has been killed :-(			****************Happens with multiple characters*****************
+
+Number of turns remaining is: 1
+1. Attack Opponent
+2. Suprise Attack
+Choose an option: 1
+Ninja jabs his kris at Gnarltooth the Gremlin:
+Gnarltooth the Gremlin hit  for <20> points damage.
+Gnarltooth the Gremlin now has 0 hit points remaining.
+
+Gnarltooth the Gremlin has been killed :-(
+
+
+-->q to quit, anything else to continue: 

@@ -53,18 +53,7 @@ This method is called by: subtractHitPoints()
 		return Math.random() <= chanceToBlock;
 	}//end defend()
 	
-/*-------------------------------------------------------
-subtractHitPoints checks to see if hero blocked attack, if so a message
-is displayed, otherwise base version of this method is invoked to
-perform the subtraction operation.  This method overrides the method
-inherited from DungeonCharacter promoting polymorphic behavior
 
-Receives: hit points to subtract
-Returns: nothing
-
-This method calls: defend() or base version of method
-This method is called by: attack() from base class
----------------------------------------------------------*/
 	public void getAttacked(int hitPoints)
 	{
 		if (defend())
@@ -77,18 +66,7 @@ This method is called by: attack() from base class
 		
 	}//end subtractHitPoints()
 
-/*-------------------------------------------------------
-battleChoices will be overridden in derived classes.  It computes the
-number of turns a hero will get per round based on the opponent that is
-being fought.  The number of turns is reported to the user.  This stuff might
-go better in another method that is invoked from this one...
 
-Receives: opponent
-Returns: nothing
-
-This method calls: getAttackSpeed()
-This method is called by: external sources
----------------------------------------------------------*/
 	public void battleChoices(DungeonCharacter opponent){
 		int choice;
 	    numTurns = this.getAttackSpeed()/opponent.getAttackSpeed();

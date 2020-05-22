@@ -1,4 +1,4 @@
-package dungeon;
+import dungeon.*;
 
 /**
  * Title: Dungeon.java

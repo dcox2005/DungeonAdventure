@@ -14,7 +14,6 @@ public class Skeleton extends Monster
     Skeleton()
 	{
 		super("Sargath the Skeleton");
-//		, 100, 3, .8, .3, 30, 50, 30, 50);
 		this.setHitPoints(100);
 		this.setAttackSpeed(3);
 		this.setChanceToHit(0.8);

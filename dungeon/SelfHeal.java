@@ -20,10 +20,7 @@ public class SelfHeal implements SpecialAbility {
 		int hPoints;
 		hPoints = (int)(Math.random() * (MAX_SELFHEAL_VALUE - MIN_SELFHEAL_VALUE + 1)) + MIN_SELFHEAL_VALUE;
 		hero.addHitPoints(hPoints);
-/*		System.out.println(name + " added [" + hPoints + "] points.\n"
-							+ "Total hit points remaining are: "
-							+ hitPoints);
-*/		System.out.println(hero.getName() + " added [" + hPoints + "] points.\n" + "Total hit points remaining are: " + hero.getHitPoints());
+		System.out.println(hero.getName() + " added [" + hPoints + "] points.\n" + "Total hit points remaining are: " + hero.getHitPoints());
 		System.out.println();
 	}
 

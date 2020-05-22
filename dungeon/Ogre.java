@@ -14,8 +14,6 @@ public class Ogre extends Monster
     Ogre()
 	{
 		super("Oscar the Ogre");
-//		, 200, 2, .6, .1, 30, 50, 30, 50);
-
 		this.setHitPoints(200);
 		this.setAttackSpeed(2);
 		this.setChanceToHit(0.6);
@@ -26,7 +24,5 @@ public class Ogre extends Monster
 		this.setMaxHeal(50);
 		this.setWeapon(new Club());
     }//end constructor
-
-
 
 }//end Ogre class

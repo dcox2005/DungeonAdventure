@@ -15,13 +15,8 @@ public abstract class Monster extends DungeonCharacter
 	private int minHeal, maxHeal;
 
 	protected Monster(String name)
-//  , int hitPoints, int attackSpeed, double chanceToHit, double chanceToHeal, int damageMin, int damageMax, int minHeal, int maxHeal)
 	{
 		super(name);
-//	, hitPoints, attackSpeed, chanceToHit, damageMin, damageMax);
-//		this.chanceToHeal = chanceToHeal;
-//		this.maxHeal = maxHeal;
-//		this.minHeal = minHeal;
 	}//end monster construcotr
 
 	private void heal()

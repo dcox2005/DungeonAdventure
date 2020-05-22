@@ -15,8 +15,7 @@ private String name;
 
 	@Override
 	public String weaponName() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.name;
 	}
 
 }

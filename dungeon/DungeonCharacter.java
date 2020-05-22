@@ -46,16 +46,9 @@ public abstract class DungeonCharacter
 //explicit constructor to initialize instance variables -- it is called
 // by derived classes
 	public DungeonCharacter(String name)
-//			, int hitPoints, int attackSpeed, double chanceToHit, int damageMin, int damageMax)
 	{
 
 		this.name = name;
-/*		this.hitPoints = hitPoints;
-		this.attackSpeed = attackSpeed;
-		this.chanceToHit = chanceToHit;
-		this.damageMin = damageMin;
-		this.damageMax = damageMax;
-*/
 	}//end constructor
 
 /*-------------------------------------------------------

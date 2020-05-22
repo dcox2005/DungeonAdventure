@@ -14,10 +14,6 @@ public class Gremlin extends Monster
     Gremlin()
 	{
 		super("Gnarltooth the Gremlin");
-//		, 70, 5, .8, .4, 15, 30, 20, 40); comment out old code
-		/* using getters and setters as these are all static and don't change
-		 * ther is no need for the constructor to pass these through.
-		 */
 		this.setHitPoints(70);
 		this.setAttackSpeed(5);
 		this.setChanceToHit(0.8);

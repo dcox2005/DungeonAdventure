@@ -14,7 +14,9 @@ public class HeroFactory
 		System.out.println("Choose a hero:\n" +
 			       "1. Warrior\n" +
 				   "2. Sorceress\n" +
-				   "3. Thief");
+				   "3. Thief\n" +
+				   "4. Archer\n" +
+				   "5. Barbarian");
 		userChoice = Keyboard.readInt();
 		String userName = createUserName();
 		switch (userChoice)
@@ -27,6 +29,12 @@ public class HeroFactory
 		
 			case 3: 
 				return createThief(userName);
+				
+			case 4:
+				return createArcher(userName);
+			
+			case 5:
+				return createBarbarian(userName);
 		
 			default:
 			{
@@ -53,6 +61,16 @@ public class HeroFactory
 	{
 		return new Thief(userName);
 	}//end createTheif
+	
+	private static Hero createArcher(String userName)
+	{
+		return new Archer(userName);
+	}//end createArcher()
+	
+	private static Hero createBarbarian(String userName)
+	{
+		return new Barbarian(userName);
+	}//end createBarbarian()
 
 	public static String createUserName()
 	{

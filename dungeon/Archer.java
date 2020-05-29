@@ -3,7 +3,7 @@ package dungeon;
 public class Archer extends Hero
 {
 
-	protected Archer(String userName) 
+	Archer(String userName) 
 	{
 		super(userName);
 		this.setHitPoints(70);

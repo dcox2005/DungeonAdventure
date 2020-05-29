@@ -2,14 +2,14 @@ package dungeon;
 
 public class Room 
 {
-	private HealingPotion healingPotion;							//
-	private VisionPotion visionPotion;								//
-	private Monster enemy;											//
-	private boolean pillarOfOO;										//
-	private boolean hasPit;											//
-	private boolean hasEntrance;									//
-	private boolean hasExit;										//
-	private boolean northDoor, eastDoor, southDoor, westDoor;		//
+	private HealingPotion healingPotion;							
+	private VisionPotion visionPotion;								
+	private Monster enemy;											
+	private boolean pillarOfOO;										
+	private boolean hasPit;											
+	private boolean hasEntrance;									
+	private boolean hasExit;										
+	private boolean northDoor, eastDoor, southDoor, westDoor;		
 	private int numberOfThingsInRoom;
 	
 	Room (boolean northDoor, boolean eastDoor, boolean southDoor, boolean westDoor, boolean entrance, boolean exit, boolean pillarOfOO)
@@ -25,7 +25,8 @@ public class Room
 		this.visionPotion = generateVisionPotion();
 		this.enemy = generateMonster();
 		this.hasPit = generatePit();
-		
+		if (pillarOfOO == true)
+			numberOfThingsInRoom++;		
 	}//end constructor
 	
 	private HealingPotion generateHealingPotion()
@@ -35,7 +36,10 @@ public class Room
 		
 		int randomNumber = (int)(Math.random() * 100);
 		if (randomNumber < 11)
+		{
+			numberOfThingsInRoom++;
 			return new HealingPotion();
+		}//end if
 		
 		return null;	//set potion to null if room doesn't get one.
 	}//end getHealingPotion()
@@ -47,7 +51,10 @@ public class Room
 		
 		int randomNumber = (int)(Math.random() * 100);
 		if (randomNumber < 11)
+		{	
+			numberOfThingsInRoom++;
 			return new VisionPotion();
+		}//end if
 		
 		return null;	//set potion to null if room doesn't get one.
 	}//end getHealingPotion()
@@ -59,8 +66,11 @@ public class Room
 		
 		int randomNumber = (int)(Math.random() * 100);
 		if (randomNumber < 31)
-			return MonsterFactory.createMonster();;
-		
+		{
+			numberOfThingsInRoom++;
+			return MonsterFactory.createMonster();
+		}//end if
+			
 		return null;	//set Monster to null if the room doesn't have one.
 	}//end getMonster()
 	
@@ -71,7 +81,10 @@ public class Room
 		
 		int randomNumber = (int)(Math.random() * 100);
 		if (randomNumber < 11)
+		{
+			numberOfThingsInRoom++;
 			return true;
+		}//end if
 		
 		return false;	//set pit to false if room doesn't get one.
 	}//end generatePit()
@@ -89,29 +102,81 @@ public class Room
 	@Override
 	public String toString()
 	{
-		String roomString = null;
+		String roomString = "";
+		if (northDoor)
+			roomString += topOrBottomWithDoor();
+		else
+			roomString += topOrBottomWithWall();
+		
+		roomString += "\n";
+		
+		if (eastDoor)
+			roomString += sideDoor();
+		else
+			roomString += sideWall();
+		
+		roomString += roomIcon();
+		
+		if (westDoor)
+			roomString += sideDoor();
+		else
+			roomString += sideWall();
+		
+		if (southDoor)
+			roomString += topOrBottomWithDoor();
+		else
+			roomString += topOrBottomWithWall();
+	
 		return roomString;
 	}//end toString
 	
-	private String topOrBottomWithDoor()
+	public String topOrBottomWithDoor()
 	{
 		return "*-*";
 	}//end topWithDoor()
 	
-	private String topOrBottomWithWall()
+	public String topOrBottomWithWall()
 	{
 		return "***";
 	}//end topWithWall()
 	
-	private String sideDoor()
+	public String sideDoor()
 	{
 		return "|";
 	}//end sideDoor()
 	
-	private String sideWall()
+	public String sideWall()
 	{
 		return "*";
 	}//end sideWall()
 	
-
+	public String roomIcon()
+	{
+		if (numberOfThingsInRoom > 1)
+			return "M";
+		
+		if (healingPotion != null)
+			return "H";
+		
+		if (visionPotion != null)
+			return "V";
+		
+		if (enemy != null)
+			return "X";
+		
+		if (pillarOfOO)
+			return "Y";
+		
+		if (hasPit)
+			return "P";
+		
+		if (hasEntrance)
+			return "I";
+		
+		if (hasExit)
+			return "O";
+		
+		return "E";
+	}//end roomIcon()
+	
 }//end Room class

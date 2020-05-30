@@ -30,7 +30,7 @@ package dungeon;
 public abstract class Hero extends DungeonCharacter
 {
 	private double chanceToBlock;
-	private int numTurns;
+	private int numTurns, numOfHealingPotion, numOfVisionPotion, numOfPillarsFound;
 	private SpecialAbility specialAbility;
 
 //calls base constructor and gets name of hero from user
@@ -100,6 +100,13 @@ This method is called by: subtractHitPoints()
 		}while(this.getNumTurns() > 0);
 
 		    }//end battleChoices method
+	
+	
+	public String toString() {
+		return "Name: " +getName()  +"\n" +"HitPoint: " +getHitPoints() +"\n" +"Number of Healing Potions: " +this.numOfHealingPotion
+				+"\n" +"Number of Visison Poitons: " +this.numOfVisionPotion +"\n" +"Number of Pillers Found" +this.numOfPillarsFound;
+		
+	}
 
 /*----------------------------Getters-------------------------------------
  */

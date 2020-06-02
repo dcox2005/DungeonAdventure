@@ -4,7 +4,8 @@ public class Room
 {
 	private HealingPotion healingPotion;							
 	private VisionPotion visionPotion;								
-	private Monster enemy;											
+	private Monster enemy;	
+	private Hero hero;
 	private boolean pillarOfOO;										
 	private boolean hasPit;											
 	private boolean hasEntrance;									
@@ -25,6 +26,7 @@ public class Room
 		this.visionPotion = generateVisionPotion();
 		this.enemy = generateMonster();
 		this.hasPit = generatePit();
+		this.hero = null;
 		if (pillarOfOO == true)
 			numberOfThingsInRoom++;		
 	}//end constructor
@@ -178,5 +180,10 @@ public class Room
 		
 		return "E";
 	}//end roomIcon()
+	
+	public void setHero(Hero hero)
+	{
+		this.hero = hero;
+	}//end setHero;
 	
 }//end Room class

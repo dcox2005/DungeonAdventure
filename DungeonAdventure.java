@@ -44,7 +44,7 @@ import dungeon.*;
 
 */
 
-public class Dungeon
+public class DungeonAdventure
 {
     public static void main(String[] args)
 	{

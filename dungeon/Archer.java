@@ -12,8 +12,8 @@ public class Archer extends Hero
 		this.setDamageMin(20);
 		this.setDamageMax(40);
 		this.setChanceToBlock(0.6);
-		this.setSpecialAbility(new SupriseAttack());	//TODO Update to MultiShot when it gets created
-		this.setWeapon(new Kris());						//TODO Update to Bow when it gets created
+		this.setSpecialAbility(new Multishot());
+		this.setWeapon(new Bow());				
     }//end constructor
 
 }//end Archer class

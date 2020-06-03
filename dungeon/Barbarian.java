@@ -13,7 +13,7 @@ public class Barbarian  extends Hero
 		this.setDamageMax(70);
 		this.setChanceToBlock(0.1);
 		this.setSpecialAbility(new CrushingBlow());
-		this.setWeapon(new MightySword());				//TODO Update to Axe when it gets created.
+		this.setWeapon(new Axe());
 	}//end constructor
 
 }//end Barbarian Class

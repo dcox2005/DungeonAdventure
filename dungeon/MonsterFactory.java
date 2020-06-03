@@ -13,7 +13,7 @@ public class MonsterFactory
 	public static Monster createMonster()
 	{
 		int randomChoice;
-		randomChoice = (int)(Math.random() * 3) + 1;
+		randomChoice = (int)(Math.random() * 5) + 1;
 		switch (randomChoice)
 		{
 			case 1: 
@@ -23,7 +23,13 @@ public class MonsterFactory
 				return createGremlin();
 			
 			case 3:
-				return createSkeleton();				
+				return createSkeleton();
+			
+			case 4:
+				return createKitten();
+			
+			case 5:
+				return createBabyDragon();
 		
 		}//end switch
 		
@@ -44,5 +50,15 @@ public class MonsterFactory
 	{
 		return new Skeleton();
 	}//end createSkeleton
+	
+	private static Monster createKitten()
+	{
+		return new Kitten();
+	}//end createKitten()
+	
+	private static Monster createBabyDragon()
+	{
+		return new BabyDragon();
+	}//end createBabyDragon()
 
 }//end MonsterFactory

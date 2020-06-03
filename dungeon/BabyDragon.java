@@ -1,3 +1,5 @@
+package dungeon;
+
 
 public class BabyDragon extends Monster {
 	
@@ -12,7 +14,7 @@ public class BabyDragon extends Monster {
 		this.setDamageMax(55);
 		this.setMinHeal(20);
 		this.setMaxHeal(40);
-		this.setWeapon(new FireBall());
+		this.setWeapon(new Fireball());
     }//end constructor
 
 }

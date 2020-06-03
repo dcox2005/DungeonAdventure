@@ -1,9 +1,11 @@
+package dungeon;
+
 
 public class Bow implements Weapon
 {	
 	private String name;
 	
-	public Club() {
+	public Bow() {
 		this.name = " Bow ";
 	}
 	

@@ -1,10 +1,11 @@
+package dungeon;
 
-=
+
 public class Affection implements Weapon
 	{	
 		private String name;
 		
-		public Club() {
+		public Affection() {
 			this.name = " Affection ";
 		}
 		
@@ -23,4 +24,4 @@ public class Affection implements Weapon
 
 	}//end affection
 
-}
+

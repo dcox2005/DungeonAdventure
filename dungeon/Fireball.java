@@ -10,7 +10,7 @@ private String name;
 	}
 	
 	public String toString() {
-		return " casts a spell of fireball at ";
+		return " propels a fireball at ";
 	}
 
 	@Override

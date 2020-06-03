@@ -18,17 +18,23 @@ class DungeonTest {
 	}
 
 	@Test
-	void testPrintFullDungeon() 
+	void testingIfPrintFullDungeonPrintsOutProperly() 
 	{
 		Dungeon testDungeon = new Dungeon();
 		String dungeonString = testDungeon.printFullDungeon();
 		System.out.println(testDungeon.printFullDungeon());
-		System.out.println(dungeonString.length());
 		int falseCount = 0;
 		
 		if (!dungeonString.startsWith("***************\n"))
 			falseCount++;
 		
+		Pattern pattern = Pattern.compile("^*[MHVXYPIOE]||[MHVXYPIOE]||[MHVXYPIOE]||[MHVXYPIOE]||[MHVXYPIOE]*$");
+		if (!((pattern.matcher(dungeonString.substring(16, 31))).find()) &&
+				!((pattern.matcher(dungeonString.substring(64, 79))).find()) &&
+				!((pattern.matcher(dungeonString.substring(112, 127))).find()) &&
+				!((pattern.matcher(dungeonString.substring(160, 175))).find()) &&
+				!((pattern.matcher(dungeonString.substring(208, 223))).find()))
+			falseCount++;
 		
 		if (!((dungeonString.substring(32, 47)).equalsIgnoreCase("*-**-**-**-**-*")) &&
 				!((dungeonString.substring(48, 63)).equalsIgnoreCase("*-**-**-**-**-*")) &&
@@ -42,14 +48,7 @@ class DungeonTest {
 		
 		if (!((dungeonString.substring(224, 239)).equalsIgnoreCase("***************")))
 			falseCount++;
-		
-//		if (!dungeonString.endsWith("***************"))
-//			falseCount++;
-		
-//		if (!Pattern.matches("[^*[|MHVXYPIOE]{13}*$]", dungeonString.substring(16, 30)))
-//			falseCount++;
-		
-//		[^\*[|MHVXYPIOE]{13}$\*]
+
 		assertTrue(falseCount == 0);
 	}//testing the full print out of dungeon
 

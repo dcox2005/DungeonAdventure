@@ -22,7 +22,7 @@ public class Room
 		this.hasEntrance = entrance;
 		this.hasExit = exit;
 		this.pillarOfOO = pillarOfOO;
-		this.healingPotion =generateHealingPotion();
+		this.healingPotion = generateHealingPotion();
 		this.visionPotion = generateVisionPotion();
 		this.enemy = generateMonster();
 		this.hasPit = generatePit();
@@ -90,17 +90,7 @@ public class Room
 		
 		return false;	//set pit to false if room doesn't get one.
 	}//end generatePit()
-	
-	private boolean hasEntrance()
-	{
-		return this.hasEntrance;
-	}//end hasEntrance()
-	
-	private boolean hasExit()
-	{
-		return this.hasExit;
-	}//end hasExit()
-	
+		
 	@Override
 	public String toString()
 	{
@@ -192,9 +182,137 @@ public class Room
 		return "E";
 	}//end roomIcon()
 	
+	
+/*
+ * ---------------------GETTERS-------------------------------	
+ */
+	
+	public HealingPotion getHealingPotion() 
+	{
+		return this.healingPotion;
+	}//end getHealingPotion()
+
+	public VisionPotion getVisionPotion() 
+	{
+		return this.visionPotion;
+	}//end getVisionPotion()
+
+	public Monster getEnemy() 
+	{
+		return this.enemy;
+	}//end getEnemy()
+
+	public Hero getHero() 
+	{
+		return this.hero;
+	}//end getHero
+
+	public boolean hasPillarOfOO() 
+	{
+		return this.pillarOfOO;
+	}//end hasPillarOfOO()
+
+	public boolean hasPit() 
+	{
+		return this.hasPit;
+	}//end hasPit
+
+	public boolean hasEntrance() 
+	{
+		return this.hasEntrance;
+	}//end hasEntrance()
+
+	public boolean hasExit() 
+	{
+		return this.hasExit;
+	}//end hasExit()
+
+	public boolean hasNorthDoor() 
+	{
+		return northDoor;
+	}//end hasNorthDoor()
+
+	public boolean hasEastDoor() 
+	{
+		return this.eastDoor;
+	}//end hasEastDoor()
+
+	public boolean hasSouthDoor() 
+	{
+		return this.southDoor;
+	}//end hasSouthDoor()
+
+	public boolean hasWestDoor() 
+	{
+		return this.westDoor;
+	}//end hasWestDoor()
+
+	public int getNumberOfThingsInRoom() 
+	{
+		return this.numberOfThingsInRoom;
+	}//end getNumberOfThingsInRoom()
+
+/*
+ * ---------------------SETTERS-------------------------------	
+*/	
+	
+	public void setHealingPotion(HealingPotion healingPotion) 
+	{
+		if (this.healingPotion != null && healingPotion == null)
+			this.numberOfThingsInRoom--;
+		
+		if (this.healingPotion == null && healingPotion != null)
+			this.numberOfThingsInRoom--;
+		
+		this.healingPotion = healingPotion;
+	}//end setHealingPotion()
+
+	public void setVisionPotion(VisionPotion visionPotion) 
+	{
+		if (this.visionPotion != null && visionPotion == null)
+			this.numberOfThingsInRoom--;
+		
+		if (this.visionPotion == null && visionPotion != null)
+			this.numberOfThingsInRoom--;
+		
+		this.visionPotion = visionPotion;
+	}//end setVisionPotion()
+
+	public void setEnemy(Monster enemy) 
+	{
+		if (this.enemy != null && enemy == null)
+			this.numberOfThingsInRoom--;
+		
+		if (this.enemy == null && enemy != null)
+			this.numberOfThingsInRoom--;
+		
+		this.enemy = enemy;
+	}//end setEnemy()
+	
 	public void setHero(Hero hero)
 	{
 		this.hero = hero;
 	}//end setHero;
+
+	public void setPillarOfOO(boolean pillarOfOO) 
+	{
+		if (this.pillarOfOO == true && pillarOfOO == false)
+			this.numberOfThingsInRoom--;
+		
+		this.pillarOfOO = pillarOfOO;
+	}//end setPillarOfOO
+
+	public void setHasPit(boolean hasPit) 
+	{
+		if (this.hasPit == true && hasPit == false)
+			this.numberOfThingsInRoom--;
+		
+		this.hasPit = hasPit;
+	}//end setHasPit()
+
+	public void setNumberOfThingsInRoom(int numberOfThingsInRoom) 
+	{
+		this.numberOfThingsInRoom = numberOfThingsInRoom;
+	}//end setNumberOfThingsInRoom()
 	
 }//end Room class

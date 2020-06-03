@@ -104,34 +104,44 @@ public class Room
 	@Override
 	public String toString()
 	{
-		String roomString = "";
+		return printRoomTopRow() + "\n" + printRoomCenterRow() + "\n" + printRoomBottomRow();
+	}//end toString
+
+	public String printRoomTopRow()
+	{
 		if (northDoor)
-			roomString += topOrBottomWithDoor();
-		else
-			roomString += topOrBottomWithWall();
+			return "*-*";
 		
-		roomString += "\n";
+		return "***";
+	}//end printRoomTop()
+	
+	public String printRoomCenterRow()
+	{
+		String results = "";
+		if (westDoor)
+			results += "|";
+		else 
+			results += "*";
+		
+		results += roomIcon();
 		
 		if (eastDoor)
-			roomString += sideDoor();
-		else
-			roomString += sideWall();
+			results += "|";
+		else 
+			results += "*";
 		
-		roomString += roomIcon();
-		
-		if (westDoor)
-			roomString += sideDoor();
-		else
-			roomString += sideWall();
-		
+		return results;
+	}//end printRoomCenterRow()
+	
+	public String printRoomBottomRow()
+	{
 		if (southDoor)
-			roomString += topOrBottomWithDoor();
-		else
-			roomString += topOrBottomWithWall();
+			return "*-*";
+		
+		return "***";
+	}//end pritnRoomBottomRow()
 	
-		return roomString;
-	}//end toString
-	
+/*
 	public String topOrBottomWithDoor()
 	{
 		return "*-*";
@@ -151,8 +161,9 @@ public class Room
 	{
 		return "*";
 	}//end sideWall()
+*/
 	
-	public String roomIcon()
+	private String roomIcon()
 	{
 		if (numberOfThingsInRoom > 1)
 			return "M";

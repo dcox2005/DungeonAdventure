@@ -23,16 +23,16 @@ public class Dungeon
 	{
 		Room[][] dungeon = new Room[DUNGEON_ROWS][DUNGEON_COLUMNS];
 		
-		for (int row = 0; row < 7; row++)
+		for (int row = 0; row < DUNGEON_ROWS; row++)
 		{
-			for (int column = 0; column < 7; column++)
+			for (int column = 0; column < DUNGEON_COLUMNS; column++)
 			{
-				if (row == 0 || row == 6)
+				if (row == 0 || row == DUNGEON_ROWS - 1)
 				{
 					dungeon[row][column] = null;
 				}//end if for top/bottom edge creation
 				
-				else if (column == 0 || column == 6)
+				else if (column == 0 || column == DUNGEON_COLUMNS - 1)
 				{
 					dungeon[row][column] = null;
 				}//end if for side edge creation
@@ -51,8 +51,8 @@ public class Dungeon
 	
 	private Room createRoom()
 	{					//Room (boolean northDoor, boolean eastDoor, boolean southDoor, boolean westDoor, boolean entrance, boolean exit, boolean pillarOfOO)
-		Room newRoom = new Room(hasNorthDoor(), hasEastDoor(), hasSouthDoor(), hasWestDoor(), hasEntrance(), hasExit(), hasPillar());
 		roomCount++;
+		Room newRoom = new Room(hasNorthDoor(), hasEastDoor(), hasSouthDoor(), hasWestDoor(), hasEntrance(), hasExit(), hasPillar());
 		currentRoomEntrance = false;
 		currentRoomExit = false;
 		return newRoom;
@@ -164,5 +164,38 @@ public class Dungeon
 		
 		return false;
 	}//end hasPillar()
+	
+	public String printFullDungeon()
+	{
+		String results = "";
+		for (int row = 1; row < DUNGEON_ROWS - 1; row ++)
+		{
+			for (int column = 1; column < DUNGEON_COLUMNS - 1; column++)
+			{
+				results += dungeon[row][column].printRoomTopRow();
+			}//end top column for loop
+			
+			results += "\n";
+			for (int column = 1; column < DUNGEON_COLUMNS - 1; column++)
+			{
+				results += dungeon[row][column].printRoomCenterRow();
+			}//end center column for loop
+			
+			results += "\n";
+			for (int column = 1; column < DUNGEON_COLUMNS - 1; column++)
+			{
+				results += dungeon[row][column].printRoomBottomRow();
+			}//end bottom column for loop
+			
+			results += "\n";
+		}//end row for loop
+		
+		return results;
+	}//end printFullDungeon
+	
+	public Room[][] getDungeon()
+	{
+		return this.dungeon;
+	}//end getDungeon()
 
 }//end RoomFactory Class

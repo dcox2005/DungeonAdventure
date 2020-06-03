@@ -103,8 +103,8 @@ This method is called by: subtractHitPoints()
 	
 	
 	public String toString() {
-		return "Name: " +getName()  +"\n" +"HitPoint: " +getHitPoints() +"\n" +"Number of Healing Potions: " +this.numOfHealingPotion
-				+"\n" +"Number of Visison Poitons: " +this.numOfVisionPotion +"\n" +"Number of Pillers Found" +this.numOfPillarsFound;
+		return "Name: " +getName()  +"\n" +"HitPoint: " +getHitPoints() +"\n" +"Number of Healing Potions: " +getnumOfHealingPotion()
+				+"\n" +"Number of Visison Poitons: " +getnumOfVisionPotion() +"\n" +"Number of Pillers Found" +getNumOfPillarsFound();
 		
 	}
 
@@ -120,6 +120,21 @@ This method is called by: subtractHitPoints()
 	{
 		return this.numTurns;
 	}//end getNumTurns
+	
+	public int getnumOfHealingPotion()
+	{
+		return numOfHealingPotion;
+	}
+	
+	public int getnumOfVisionPotion()
+	{
+		return numOfVisionPotion;
+	}
+	
+	public int getNumOfPillarsFound()
+	{
+		return numOfPillarsFound;
+	}
 	
 /*----------------------------Setters-------------------------------------
 */	
@@ -143,5 +158,17 @@ This method is called by: subtractHitPoints()
 	public void setSpecialAbility(SpecialAbility specialAbility) {
 		this.specialAbility = specialAbility;
 	}//end setSpecialAbility()
+	
+	public void setNumOfHealingPotion(int numOfPotions) {
+		this.numOfHealingPotion = numOfPotions;
+	}
+	
+	public void setNumOfVisionPotion(int numOfPotions) {
+		this.numOfVisionPotion = numOfPotions;
+	}
+	
+	public void setNumOfPillarsFound(int numOfPillars) {
+		this.numOfPillarsFound = numOfPillars;
+	}
 	
 }//end Hero class

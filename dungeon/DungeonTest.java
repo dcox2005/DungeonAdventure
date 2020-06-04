@@ -14,7 +14,7 @@ class DungeonTest {
 		System.out.println("-----testDungeonForOnlyOneEntrance-----");
 		Dungeon testDungeon = new Dungeon();
 		Room [][] dungeonResults = testDungeon.getDungeon();
-		System.out.println(testDungeon.printFullDungeon());
+//		System.out.println(testDungeon.printFullDungeon());
 		int results = 0;
 		for (int row = 1; row < dungeonResults.length - 1; row++)
 		{
@@ -26,6 +26,7 @@ class DungeonTest {
 			
 		}//end for row
 		
+		System.out.println("Entrance results: " + results);
 		assertTrue(results == 1);	
 	}//end testDungeonForOnlyOneEntrance
 	
@@ -36,7 +37,7 @@ class DungeonTest {
 		System.out.println("-----testDungeonForOnlyOneExit-----");
 		Dungeon testDungeon = new Dungeon();
 		Room [][] dungeonResults = testDungeon.getDungeon();
-		System.out.println(testDungeon.printFullDungeon());
+//		System.out.println(testDungeon.printFullDungeon());
 		int results = 0;
 		for (int row = 1; row < dungeonResults.length - 1; row++)
 		{
@@ -48,6 +49,7 @@ class DungeonTest {
 			
 		}//end for row
 		
+		System.out.println("Exit results: " + results);
 		assertTrue(results == 1);	
 	}//end testDungeonForOnlyOneExit
 	
@@ -58,7 +60,7 @@ class DungeonTest {
 		System.out.println("-----testDungeonForFourPillars-----");
 		Dungeon testDungeon = new Dungeon();
 		Room [][] dungeonResults = testDungeon.getDungeon();
-		System.out.println(testDungeon.printFullDungeon());
+//		System.out.println(testDungeon.printFullDungeon());
 		int results = 0;
 		for (int row = 1; row < dungeonResults.length - 1; row++)
 		{
@@ -80,7 +82,7 @@ class DungeonTest {
 		System.out.println("-----testingIfPrintFullDungeonPrintsOutProperly-----");
 		Dungeon testDungeon = new Dungeon();
 		String dungeonString = testDungeon.printFullDungeon();
-		System.out.println(testDungeon.printFullDungeon());
+//		System.out.println(testDungeon.printFullDungeon());
 		int falseCount = 0;
 		
 		if (!dungeonString.startsWith("***************\n"))
@@ -117,7 +119,7 @@ class DungeonTest {
 		System.out.println("-----testGetEntranceLocation-----");
 		Dungeon testDungeon = new Dungeon();
 		Room [][] dungeonResults = testDungeon.getDungeon();
-		System.out.println(testDungeon.printFullDungeon());
+//		System.out.println(testDungeon.printFullDungeon());
 		int[] testLocation = testDungeon.getEntranceLocation();
 		int dungeonRow = 0, dungeonColumn = 0;
 		for (int row = 1; row < dungeonResults.length - 1; row++)
@@ -138,5 +140,42 @@ class DungeonTest {
 		assertTrue(testLocation[0] == dungeonRow && testLocation[1] == dungeonColumn);
 		
 	}//end testGetEntranceLocation()
+	
+	@Test
+	void testNewLocation_HeroLocationShouldBeUpdatedToNewCordinatesThatAreEntered()
+	{
+		System.out.println("--------------------------------------------------");
+		System.out.println("-----testNewLocation_HeroLocationShouldBeUpdatedToNewCordinatesThatAreEntered-----");
+		Dungeon testDungeon = new Dungeon();
+		Hero testHero = new Warrior("Thrall");
+//		System.out.println(testDungeon.printFullDungeon());
+		int theRowOfTheDungeonTheHeroShouldBeIn = 4;
+		int theColumnOfTheDungeonTheHeroShouldBeIn	= 2;
+		testDungeon.newLocation(testHero, theRowOfTheDungeonTheHeroShouldBeIn, 
+				theColumnOfTheDungeonTheHeroShouldBeIn);
+		int[] heroLocation = testDungeon.getHeroLocation();
+		assertTrue(heroLocation[0] == theRowOfTheDungeonTheHeroShouldBeIn && 
+				heroLocation[1] == theColumnOfTheDungeonTheHeroShouldBeIn);
+	}//end testNewLocation_HeroLocationShouldBeUpdatedToNewCordinatesThatAreEntered
+	
+	@Test
+	void testNewLocation_HeroShouldNotBeAbleToGoToAZoneWithAZeroRowOrColumn()
+	{
+		System.out.println("--------------------------------------------------");
+		System.out.println("-----testNewLocation_HeroShouldNotBeAbleToGoToAZoneWithAZeroRowOrColumn-----");
+		Dungeon testDungeon = new Dungeon();
+		Hero testHero = new Warrior("Thrall");
+//		System.out.println(testDungeon.printFullDungeon());
+		int theRowOfTheDungeonTheHeroTriesToMoveTo = 0;
+		int theColumnOfTheDungeonTheHeroTriesToMoveTo	= 4;
+		int[] dungeonEntrance = testDungeon.getEntranceLocation();
+		testDungeon.newLocation(testHero, theRowOfTheDungeonTheHeroTriesToMoveTo, 
+				theColumnOfTheDungeonTheHeroTriesToMoveTo);
+		int[] heroLocation = testDungeon.getHeroLocation();
+		//hero should remain at the dungeon entrance if he couldn't move to the new location.
+		assertTrue(heroLocation[0] == dungeonEntrance[0] && 
+				heroLocation[1] == dungeonEntrance[1]);
+	}//end testNewLocation_HeroShouldNotBeAbleToGoToAZoneWithAZeroRowOrColumn
+	
 	
 }//end DungeonTest

@@ -8,31 +8,31 @@ public class Dungeon
 	private boolean currentRoomExit;
 	private int roomCount;
 	private int pillarOOCount;
-	private int entranceProbability;
-	private int exitProbability;
 	private final int DUNGEON_COLUMNS = 7;
 	private final int DUNGEON_ROWS = 7;
 	private Room[][] dungeon = new Room[DUNGEON_ROWS][DUNGEON_COLUMNS];
-
+	private int[] heroLocation = new int[2];
+	
 	public Dungeon()
 	{
 		this.dungeon = createDungeon(); 
+		this.heroLocation = getEntranceLocation();
 	}//end constructor
 	
 	private Room[][] createDungeon()
 	{
-		Room[][] dungeon = new Room[DUNGEON_ROWS][DUNGEON_COLUMNS];
+		Room[][] dungeon = new Room[this.DUNGEON_ROWS][this.DUNGEON_COLUMNS];
 		
-		for (int row = 0; row < DUNGEON_ROWS; row++)
+		for (int row = 0; row < this.DUNGEON_ROWS; row++)
 		{
-			for (int column = 0; column < DUNGEON_COLUMNS; column++)
+			for (int column = 0; column < this.DUNGEON_COLUMNS; column++)
 			{
-				if (row == 0 || row == DUNGEON_ROWS - 1)
+				if (row == 0 || row == this.DUNGEON_ROWS - 1)
 				{
 					dungeon[row][column] = null;
 				}//end if for top/bottom edge creation
 				
-				else if (column == 0 || column == DUNGEON_COLUMNS - 1)
+				else if (column == 0 || column == this.DUNGEON_COLUMNS - 1)
 				{
 					dungeon[row][column] = null;
 				}//end if for side edge creation
@@ -50,17 +50,28 @@ public class Dungeon
 	}//end createDungeon()
 	
 	private Room createRoom()
-	{					//Room (boolean northDoor, boolean eastDoor, boolean southDoor, boolean westDoor, boolean entrance, boolean exit, boolean pillarOfOO)
-		roomCount++;
-		Room newRoom = new Room(hasNorthDoor(), hasEastDoor(), hasSouthDoor(), hasWestDoor(), hasEntrance(), hasExit(), hasPillar());
-		currentRoomEntrance = false;
-		currentRoomExit = false;
+	{
+		this.roomCount++;
+		Room newRoom = new Room();
+		newRoom.setNorthDoor(hasNorthDoor());
+		newRoom.setEastDoor(hasEastDoor());
+		newRoom.setSouthDoor(hasSouthDoor());
+		newRoom.setWestDoor(hasWestDoor());
+		newRoom.setEntrance(hasEntrance());
+		newRoom.setExit(hasExit());
+		newRoom.setPillarOfOO(hasPillar());
+		newRoom.setHealingPotion(generateHealingPotion());
+		newRoom.setVisionPotion(generateVisionPotion());
+		newRoom.setEnemy(generateMonster());
+		newRoom.setHasPit(generatePit());
+		this.currentRoomEntrance = false;
+		this.currentRoomExit = false;
 		return newRoom;
 	}//end createRoom()
 	
 	private boolean hasNorthDoor()
 	{
-		if (roomCount < 6)
+		if (this.roomCount < 6)
 			return false;
 		
 		return true;
@@ -68,7 +79,7 @@ public class Dungeon
 	
 	private boolean hasSouthDoor()
 	{
-		if (roomCount > 20)
+		if (this.roomCount > 20)
 			return false;
 		
 		return true;
@@ -76,7 +87,8 @@ public class Dungeon
 	
 	private boolean hasEastDoor()
 	{
-		if (roomCount == 5 || roomCount == 10 || roomCount == 15 || roomCount == 20 || roomCount == 25)
+		if (this.roomCount == 5 || this.roomCount == 10 || this.roomCount == 15 || 
+				this.roomCount == 20 || this.roomCount == 25)
 			return false;
 		
 		return true;
@@ -84,7 +96,8 @@ public class Dungeon
 	
 	private boolean hasWestDoor()
 	{
-		if (roomCount == 1 || roomCount == 6 || roomCount == 11 || roomCount == 16 || roomCount == 21)
+		if (this.roomCount == 1 || this.roomCount == 6 || this.roomCount == 11 || 
+				this.roomCount == 16 || this.roomCount == 21)
 			return false;
 		
 		return true;
@@ -92,99 +105,142 @@ public class Dungeon
 	
 	private boolean hasEntrance()
 	{
-		if (roomWithEntrance == true)
+		if (this.roomWithEntrance == true)
 			return false;
-		
-		if (entranceProbability > 24)
-		{
-			currentRoomEntrance = true;
-			roomWithEntrance = true;
-			return true;
-		}//end if entranceProbability
 			
 		if ((int)(Math.random() * 25) < 5)
 		{
-			currentRoomEntrance = true;
-			roomWithEntrance = true;
+			this.currentRoomEntrance = true;
+			this.roomWithEntrance = true;
 			return true;
 		}//end if random chance
 		
-		entranceProbability++;		
+		if (this.roomCount > 24)
+		{
+			this.currentRoomEntrance = true;
+			this.roomWithEntrance = true;
+			return true;
+		}//end if guaranteed entrance
+		
 		return false;
 	}//end hasEntrance()
 	
 	private boolean hasExit()
 	{
-		if (roomWithExit == true)
+		if (this.roomWithExit == true)
 			return false;
 		
-		if (currentRoomEntrance)
-		{
-			exitProbability++;
+		if (this.currentRoomEntrance)
 			return false;
-		}//end if curretnRoomEntrance
-
-		if (exitProbability > 23)
-		{
-			currentRoomExit = true;
-			roomWithExit = true;
-			return true;
-		}//end if exitProbability
 			
 		if ((int)(Math.random() * 25) < 5)
 		{
-			currentRoomExit = true;
-			roomWithExit = true;
+			this.currentRoomExit = true;
+			this.roomWithExit = true;
 			return true;
 		}//end if random chance
 		
-		exitProbability++;
+		if (this.roomCount > 23)
+		{
+			this.currentRoomExit = true;
+			this.roomWithExit = true;
+			return true;
+		}//end if guaranteed exit
+		
 		return false;
 	}//end hasExit()
 	
 	private boolean hasPillar()
 	{
-		if (currentRoomEntrance || currentRoomExit)
+		if (this.currentRoomEntrance || this.currentRoomExit)
 			return false;
 		
-		if (pillarOOCount == 4)
+		if (this.pillarOOCount == 4)
 			return false;
 		
 		if ((int)(Math.random() * 100) < 31)
 		{
-			pillarOOCount++;
+			this.pillarOOCount++;
 			return true;
 		}//end if
 		
-		if (roomCount > 20)
+		if (this.roomCount > 20)
 		{
-			pillarOOCount++;
+			this.pillarOOCount++;
 			return true;
 		}//end if roomCount
 		
 		return false;
 	}//end hasPillar()
 	
+	private HealingPotion generateHealingPotion()
+	{
+		if (this.currentRoomEntrance == true || this.currentRoomExit == true)
+			return null;				//rooms with an entrance/exit will have nothing else
+		
+		int randomNumber = (int)(Math.random() * 100);
+		if (randomNumber < 11)
+			return new HealingPotion();
+
+		return null;	//set potion to null if room doesn't get one.
+	}//end getHealingPotion()
+	
+	private VisionPotion generateVisionPotion()
+	{
+		if (this.currentRoomEntrance == true || this.currentRoomExit == true)
+			return null;				//rooms with an entrance/exit will have nothing else
+		
+		int randomNumber = (int)(Math.random() * 100);
+		if (randomNumber < 11)
+			return new VisionPotion();
+		
+		return null;	//set potion to null if room doesn't get one.
+	}//end getHealingPotion()
+	
+	private Monster generateMonster()
+	{
+		if (this.currentRoomEntrance == true || this.currentRoomExit == true)
+			return null;				//rooms with an entrance/exit will have nothing else
+		
+		int randomNumber = (int)(Math.random() * 100);
+		if (randomNumber < 31)
+			return MonsterFactory.createMonster();
+			
+		return null;	//set Monster to null if the room doesn't have one.
+	}//end getMonster()
+	
+	private boolean generatePit()
+	{
+		if (this.currentRoomEntrance == true || this.currentRoomExit == true)
+			return false;				//rooms with an entrance/exit will have nothing else
+		
+		int randomNumber = (int)(Math.random() * 100);
+		if (randomNumber < 11)
+			return true;
+		
+		return false;	//set pit to false if room doesn't get one.
+	}//end generatePit()
+	
 	public String printFullDungeon()
 	{
 		String results = "";
-		for (int row = 1; row < DUNGEON_ROWS - 1; row ++)
+		for (int row = 1; row < this.DUNGEON_ROWS - 1; row ++)
 		{
-			for (int column = 1; column < DUNGEON_COLUMNS - 1; column++)
+			for (int column = 1; column < this.DUNGEON_COLUMNS - 1; column++)
 			{
-				results += dungeon[row][column].printRoomTopRow();
+				results += this.dungeon[row][column].printRoomTopRow();
 			}//end top column for loop
 			
 			results += "\n";
-			for (int column = 1; column < DUNGEON_COLUMNS - 1; column++)
+			for (int column = 1; column < this.DUNGEON_COLUMNS - 1; column++)
 			{
-				results += dungeon[row][column].printRoomCenterRow();
+				results += this.dungeon[row][column].printRoomCenterRow();
 			}//end center column for loop
 			
 			results += "\n";
-			for (int column = 1; column < DUNGEON_COLUMNS - 1; column++)
+			for (int column = 1; column < this.DUNGEON_COLUMNS - 1; column++)
 			{
-				results += dungeon[row][column].printRoomBottomRow();
+				results += this.dungeon[row][column].printRoomBottomRow();
 			}//end bottom column for loop
 			
 			results += "\n";
@@ -201,11 +257,11 @@ public class Dungeon
 	public int[] getEntranceLocation()
 	{
 		int[] location = new int[2];
-		for (int row = 1; row < DUNGEON_ROWS - 1; row ++)
+		for (int row = 1; row < this.DUNGEON_ROWS - 1; row ++)
 		{
-			for (int column = 1; column < DUNGEON_COLUMNS - 1; column++)
+			for (int column = 1; column < this.DUNGEON_COLUMNS - 1; column++)
 			{
-				if (dungeon[row][column].hasEntrance())
+				if (this.dungeon[row][column].hasEntrance())
 				{
 					location[0] = row;
 					location[1] = column;
@@ -221,9 +277,24 @@ public class Dungeon
 	
 	public void newLocation(Hero hero, int row, int column)
 	{
-		System.out.println(hero.getName() + " has entered room [" + row + "][" + column + "]");
-		Room room = dungeon[row][column];
+		if (row < 1 || row > 5 || column < 1 || column > 5)
+		{
+			System.out.println("You can't move that way. There is a wall. Try again.");
+			return;
+		}//end if dungeon edge
+		
+		this.heroLocation[0] = row;
+		this.heroLocation[1] = column;
+		System.out.println(hero.getName() + " has entered room [" + this.heroLocation[0] + "][" + 
+				this.heroLocation[1] + "]");
+		Room room = this.dungeon[this.heroLocation[0]][this.heroLocation[1]];
 		room.setHero(hero);
+		
+		if (room.getNumberOfThingsInRoom() == 0)
+		{
+			System.out.println("The room is empty");
+		}//end if empty room
+		
 		if (room.hasPit())
 		{
 			hero.subtractHitPoints(room.pitDamage());
@@ -256,8 +327,8 @@ public class Dungeon
 		
 		if (room.getEnemy() != null)
 		{
-			System.out.println(hero.getName() + " found a monster in the room. " + hero.getName() + 
-					" will now have to battl " + room.getEnemy().getName());
+			System.out.println(hero.getName() + " found a monster in the room. ");
+			System.out.println(hero.getName() + " will now have to battle " + room.getEnemy().getName());
 			//TODO What to do when an enemy is in the room
 			room.setEnemy(null);
 		}//end if enemy
@@ -276,6 +347,12 @@ public class Dungeon
 			}//end else
 				
 		}//end if exit
+		
 	}//end newLocations()
+	
+	public int[] getHeroLocation()
+	{
+		return this.heroLocation;
+	}//end getHeroLocation
 	
 }//end RoomFactory Class

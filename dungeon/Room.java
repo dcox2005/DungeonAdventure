@@ -13,84 +13,19 @@ public class Room
 	private boolean northDoor, eastDoor, southDoor, westDoor;		
 	private int numberOfThingsInRoom;
 	
-	Room (boolean northDoor, boolean eastDoor, boolean southDoor, boolean westDoor, boolean entrance, boolean exit, boolean pillarOfOO)
-	{
-		this.northDoor = northDoor;
-		this.eastDoor = eastDoor;
-		this.southDoor = southDoor;
-		this.westDoor = westDoor;
-		this.hasEntrance = entrance;
-		this.hasExit = exit;
-		this.pillarOfOO = pillarOfOO;
+	Room ()
+	{	
+/*
 		this.healingPotion = generateHealingPotion();
 		this.visionPotion = generateVisionPotion();
 		this.enemy = generateMonster();
 		this.hasPit = generatePit();
 		this.hero = null;
 		if (pillarOfOO == true)
-			numberOfThingsInRoom++;		
+			numberOfThingsInRoom++;	
+*/		
 	}//end constructor
 	
-	private HealingPotion generateHealingPotion()
-	{
-		if (hasEntrance() == true || hasExit() == true)
-			return null;				//rooms with an entrance/exit will have nothing else
-		
-		int randomNumber = (int)(Math.random() * 100);
-		if (randomNumber < 11)
-		{
-			numberOfThingsInRoom++;
-			return new HealingPotion();
-		}//end if
-		
-		return null;	//set potion to null if room doesn't get one.
-	}//end getHealingPotion()
-	
-	private VisionPotion generateVisionPotion()
-	{
-		if (hasEntrance() == true || hasExit() == true)
-			return null;				//rooms with an entrance/exit will have nothing else
-		
-		int randomNumber = (int)(Math.random() * 100);
-		if (randomNumber < 11)
-		{	
-			numberOfThingsInRoom++;
-			return new VisionPotion();
-		}//end if
-		
-		return null;	//set potion to null if room doesn't get one.
-	}//end getHealingPotion()
-	
-	private Monster generateMonster()
-	{
-		if (hasEntrance() == true || hasExit() == true)
-			return null;				//rooms with an entrance/exit will have nothing else
-		
-		int randomNumber = (int)(Math.random() * 100);
-		if (randomNumber < 31)
-		{
-			numberOfThingsInRoom++;
-			return MonsterFactory.createMonster();
-		}//end if
-			
-		return null;	//set Monster to null if the room doesn't have one.
-	}//end getMonster()
-	
-	private boolean generatePit()
-	{
-		if (hasEntrance() == true || hasExit() == true)
-			return false;				//rooms with an entrance/exit will have nothing else
-		
-		int randomNumber = (int)(Math.random() * 100);
-		if (randomNumber < 11)
-		{
-			numberOfThingsInRoom++;
-			return true;
-		}//end if
-		
-		return false;	//set pit to false if room doesn't get one.
-	}//end generatePit()
-		
 	@Override
 	public String toString()
 	{
@@ -130,29 +65,7 @@ public class Room
 		
 		return "***";
 	}//end pritnRoomBottomRow()
-	
-/*
-	public String topOrBottomWithDoor()
-	{
-		return "*-*";
-	}//end topWithDoor()
-	
-	public String topOrBottomWithWall()
-	{
-		return "***";
-	}//end topWithWall()
-	
-	public String sideDoor()
-	{
-		return "|";
-	}//end sideDoor()
-	
-	public String sideWall()
-	{
-		return "*";
-	}//end sideWall()
-*/
-	
+
 	private String roomIcon()
 	{
 		if (numberOfThingsInRoom > 1)
@@ -271,7 +184,7 @@ public class Room
 			this.numberOfThingsInRoom--;
 		
 		if (this.healingPotion == null && healingPotion != null)
-			this.numberOfThingsInRoom--;
+			this.numberOfThingsInRoom++;
 		
 		this.healingPotion = healingPotion;
 	}//end setHealingPotion()
@@ -282,7 +195,7 @@ public class Room
 			this.numberOfThingsInRoom--;
 		
 		if (this.visionPotion == null && visionPotion != null)
-			this.numberOfThingsInRoom--;
+			this.numberOfThingsInRoom++;
 		
 		this.visionPotion = visionPotion;
 	}//end setVisionPotion()
@@ -293,7 +206,7 @@ public class Room
 			this.numberOfThingsInRoom--;
 		
 		if (this.enemy == null && enemy != null)
-			this.numberOfThingsInRoom--;
+			this.numberOfThingsInRoom++;
 		
 		this.enemy = enemy;
 	}//end setEnemy()
@@ -308,6 +221,9 @@ public class Room
 		if (this.pillarOfOO == true && pillarOfOO == false)
 			this.numberOfThingsInRoom--;
 		
+		if (this.pillarOfOO == false && pillarOfOO == true)
+			this.numberOfThingsInRoom++;
+		
 		this.pillarOfOO = pillarOfOO;
 	}//end setPillarOfOO
 
@@ -316,6 +232,9 @@ public class Room
 		if (this.hasPit == true && hasPit == false)
 			this.numberOfThingsInRoom--;
 		
+		if (this.hasPit == false && hasPit == true)
+			this.numberOfThingsInRoom++;
+		
 		this.hasPit = hasPit;
 	}//end setHasPit()
 
@@ -323,5 +242,36 @@ public class Room
 	{
 		this.numberOfThingsInRoom = numberOfThingsInRoom;
 	}//end setNumberOfThingsInRoom()
+
+	public void setEntrance(boolean hasEntrance) 
+	{
+		this.hasEntrance = hasEntrance;
+	}//end setEntrance
+
+	public void setExit(boolean hasExit) 
+	{
+		this.hasExit = hasExit;
+	}//end setExit
+
+	public void setNorthDoor(boolean northDoor) 
+	{
+		this.northDoor = northDoor;
+	}//end setNorthDoor
+
+	public void setEastDoor(boolean eastDoor) 
+	{
+		this.eastDoor = eastDoor;
+	}//end setEastDoor
+
+	public void setSouthDoor(boolean southDoor) 
+	{
+		this.southDoor = southDoor;
+	}//end setSouthDoor
+
+	public void setWestDoor(boolean westDoor) 
+	{
+		this.westDoor = westDoor;
+	}//end setWestDoor
+	
 	
 }//end Room class

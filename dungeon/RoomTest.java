@@ -16,7 +16,14 @@ class RoomTest
 		System.out.println("--------------------------------------------------");
 		System.out.println("-----testIfToStringPrintsTheRoomProperly_EmptyRoomNoDoor-----");
 		
-		Room testRoom = new Room(false, false, false, false, false, false, false);
+		Room testRoom = new Room();
+		testRoom.setNorthDoor(false);
+		testRoom.setEastDoor(false);
+		testRoom.setSouthDoor(false);
+		testRoom.setWestDoor(false);
+		testRoom.setEntrance(false);
+		testRoom.setExit(false);
+		testRoom.setPillarOfOO(false);
 		testRoom.setHealingPotion(null);
 		testRoom.setVisionPotion(null);
 		testRoom.setEnemy(null);
@@ -31,7 +38,14 @@ class RoomTest
 	{
 		System.out.println("--------------------------------------------------");
 		System.out.println("-----testRoomWithOnlyNorthDoor_EmptyRoom-----");
-		Room testRoom = new Room(true, false, false, false, false, false, false);
+		Room testRoom = new Room();
+		testRoom.setNorthDoor(true);
+		testRoom.setEastDoor(false);
+		testRoom.setSouthDoor(false);
+		testRoom.setWestDoor(false);
+		testRoom.setEntrance(false);
+		testRoom.setExit(false);
+		testRoom.setPillarOfOO(false);
 		System.out.println(testRoom.toString());
 		testRoom.setHealingPotion(null);
 		testRoom.setVisionPotion(null);
@@ -46,7 +60,14 @@ class RoomTest
 	{
 		System.out.println("--------------------------------------------------");
 		System.out.println("-----testRoomWithOnlySouthDoor_EmptyRoom-----");
-		Room testRoom = new Room(false, false, true, false, false, false, false);
+		Room testRoom = new Room();
+		testRoom.setNorthDoor(false);
+		testRoom.setEastDoor(false);
+		testRoom.setSouthDoor(true);
+		testRoom.setWestDoor(false);
+		testRoom.setEntrance(false);
+		testRoom.setExit(false);
+		testRoom.setPillarOfOO(false);
 		testRoom.setHealingPotion(null);
 		testRoom.setVisionPotion(null);
 		testRoom.setEnemy(null);
@@ -61,7 +82,14 @@ class RoomTest
 	{
 		System.out.println("--------------------------------------------------");
 		System.out.println("-----testRoomWithOnlyEastDoor_EmptyRoom-----");
-		Room testRoom = new Room(false, true, false, false, false, false, false);
+		Room testRoom = new Room();
+		testRoom.setNorthDoor(false);
+		testRoom.setEastDoor(true);
+		testRoom.setSouthDoor(false);
+		testRoom.setWestDoor(false);
+		testRoom.setEntrance(false);
+		testRoom.setExit(false);
+		testRoom.setPillarOfOO(false);
 		testRoom.setHealingPotion(null);
 		testRoom.setVisionPotion(null);
 		testRoom.setEnemy(null);
@@ -76,7 +104,14 @@ class RoomTest
 	{
 		System.out.println("--------------------------------------------------");
 		System.out.println("-----testRoomWithOnlyWestDoor_EmptyRoom-----");
-		Room testRoom = new Room(false, false, false, true, false, false, false);
+		Room testRoom = new Room();
+		testRoom.setNorthDoor(false);
+		testRoom.setEastDoor(false);
+		testRoom.setSouthDoor(false);
+		testRoom.setWestDoor(true);
+		testRoom.setEntrance(false);
+		testRoom.setExit(false);
+		testRoom.setPillarOfOO(false);
 		testRoom.setHealingPotion(null);
 		testRoom.setVisionPotion(null);
 		testRoom.setEnemy(null);
@@ -91,7 +126,14 @@ class RoomTest
 	{
 		System.out.println("--------------------------------------------------");
 		System.out.println("-----testRoomWithAllDoors_EmptyRoom-----");
-		Room testRoom = new Room(true, true, true, true, false, false, false);
+		Room testRoom = new Room();
+		testRoom.setNorthDoor(true);
+		testRoom.setEastDoor(true);
+		testRoom.setSouthDoor(true);
+		testRoom.setWestDoor(true);
+		testRoom.setEntrance(false);
+		testRoom.setExit(false);
+		testRoom.setPillarOfOO(false);
 		testRoom.setHealingPotion(null);
 		testRoom.setVisionPotion(null);
 		testRoom.setEnemy(null);
@@ -106,7 +148,14 @@ class RoomTest
 	{
 		System.out.println("--------------------------------------------------");
 		System.out.println("-----testRoomWithAllDoors_EntranceOnly-----");
-		Room testRoom = new Room(true, true, true, true, true, false, false);
+		Room testRoom = new Room();
+		testRoom.setNorthDoor(true);
+		testRoom.setEastDoor(true);
+		testRoom.setSouthDoor(true);
+		testRoom.setWestDoor(true);
+		testRoom.setEntrance(true);
+		testRoom.setExit(false);
+		testRoom.setPillarOfOO(false);
 		testRoom.setHealingPotion(null);
 		testRoom.setVisionPotion(null);
 		testRoom.setEnemy(null);
@@ -120,7 +169,14 @@ class RoomTest
 	{
 		System.out.println("--------------------------------------------------");
 		System.out.println("-----testRoomWithAllDoors_ExitOnly-----");
-		Room testRoom = new Room(true, true, true, true, false, true, false);
+		Room testRoom = new Room();
+		testRoom.setNorthDoor(true);
+		testRoom.setEastDoor(true);
+		testRoom.setSouthDoor(true);
+		testRoom.setWestDoor(true);
+		testRoom.setEntrance(false);
+		testRoom.setExit(true);
+		testRoom.setPillarOfOO(false);
 		testRoom.setHealingPotion(null);
 		testRoom.setVisionPotion(null);
 		testRoom.setEnemy(null);
@@ -134,7 +190,14 @@ class RoomTest
 	{
 		System.out.println("--------------------------------------------------");
 		System.out.println("-----testRoomWithAllDoors_PillarOnly-----");
-		Room testRoom = new Room(true, true, true, true, false, false, true);
+		Room testRoom = new Room();
+		testRoom.setNorthDoor(true);
+		testRoom.setEastDoor(true);
+		testRoom.setSouthDoor(true);
+		testRoom.setWestDoor(true);
+		testRoom.setEntrance(false);
+		testRoom.setExit(false);
+		testRoom.setPillarOfOO(true);
 		testRoom.setHealingPotion(null);
 		testRoom.setVisionPotion(null);
 		testRoom.setEnemy(null);
@@ -148,7 +211,14 @@ class RoomTest
 	{
 		System.out.println("--------------------------------------------------");
 		System.out.println("-----testRoomWithAllDoors_HealingPotionOnly-----");
-		Room testRoom = new Room(true, true, true, true, false, false, false);
+		Room testRoom = new Room();
+		testRoom.setNorthDoor(true);
+		testRoom.setEastDoor(true);
+		testRoom.setSouthDoor(true);
+		testRoom.setWestDoor(true);
+		testRoom.setEntrance(false);
+		testRoom.setExit(false);
+		testRoom.setPillarOfOO(false);
 		testRoom.setHealingPotion(new HealingPotion());
 		testRoom.setVisionPotion(null);
 		testRoom.setEnemy(null);
@@ -162,7 +232,14 @@ class RoomTest
 	{
 		System.out.println("--------------------------------------------------");
 		System.out.println("-----testPitDamage_ShouldBeBetweenOneAndTwenty-----");
-		Room testRoom = new Room(true, true, true, true, false, false, false);
+		Room testRoom = new Room();
+		testRoom.setNorthDoor(true);
+		testRoom.setEastDoor(true);
+		testRoom.setSouthDoor(true);
+		testRoom.setWestDoor(true);
+		testRoom.setEntrance(false);
+		testRoom.setExit(false);
+		testRoom.setPillarOfOO(false);
 		testRoom.setHasPit(true);
 		testRoom.setHero(new Thief("TestCharacter"));
 		int pitDamage = testRoom.pitDamage();
@@ -174,7 +251,14 @@ class RoomTest
 	{
 		System.out.println("--------------------------------------------------");
 		System.out.println("-----testPitDamage_ShouldBeZeroIfThereIsNoPit-----");
-		Room testRoom = new Room(true, true, true, true, false, false, false);
+		Room testRoom = new Room();
+		testRoom.setNorthDoor(true);
+		testRoom.setEastDoor(true);
+		testRoom.setSouthDoor(true);
+		testRoom.setWestDoor(true);
+		testRoom.setEntrance(false);
+		testRoom.setExit(false);
+		testRoom.setPillarOfOO(false);
 		testRoom.setHasPit(false);
 		int pitDamage = testRoom.pitDamage();
 		assertTrue(pitDamage == 0);

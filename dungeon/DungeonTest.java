@@ -8,14 +8,64 @@ import java.util.regex.*;
 class DungeonTest {
 
 	@Test
-	void testDungeon() 
+	void testDungeonForOnlyOneEntrance() 
 	{
 		Dungeon testDungeon = new Dungeon();
 		Room [][] dungeonResults = testDungeon.getDungeon();
+		System.out.println(testDungeon.printFullDungeon());
+		int results = 0;
+		for (int row = 1; row < dungeonResults.length - 1; row++)
+		{
+			for (int column = 1; column < dungeonResults[row].length - 1; column++)
+			{
+				if (dungeonResults[row][column].hasEntrance())
+					results += 1;
+			}//end for column
+			
+		}//end for row
 		
+		assertTrue(results == 1);	
+	}//end testDungeonForOnlyOneEntrance
+	
+	@Test
+	void testDungeonForOnlyOneExit() 
+	{
+		Dungeon testDungeon = new Dungeon();
+		Room [][] dungeonResults = testDungeon.getDungeon();
+		System.out.println(testDungeon.printFullDungeon());
+		int results = 0;
+		for (int row = 1; row < dungeonResults.length - 1; row++)
+		{
+			for (int column = 1; column < dungeonResults[row].length - 1; column++)
+			{
+				if (dungeonResults[row][column].hasExit())
+					results += 1;
+			}//end for column
+			
+		}//end for row
 		
-		fail("Not yet implemented");
-	}
+		assertTrue(results == 1);	
+	}//end testDungeonForOnlyOneExit
+	
+	@Test
+	void testDungeonForFourPillars() 
+	{
+		Dungeon testDungeon = new Dungeon();
+		Room [][] dungeonResults = testDungeon.getDungeon();
+		System.out.println(testDungeon.printFullDungeon());
+		int results = 0;
+		for (int row = 1; row < dungeonResults.length - 1; row++)
+		{
+			for (int column = 1; column < dungeonResults[row].length - 1; column++)
+			{
+				if (dungeonResults[row][column].hasPillarOfOO())
+					results += 1;
+			}//end for column
+			
+		}//end for row
+		
+		assertTrue(results == 4);	
+	}//end testDungeonForOnlyOneEntrance
 
 	@Test
 	void testingIfPrintFullDungeonPrintsOutProperly() 

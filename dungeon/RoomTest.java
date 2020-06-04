@@ -4,7 +4,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-class RoomTest {
+class RoomTest 
+{
 
 	//Room (boolean northDoor, boolean eastDoor, boolean southDoor, 
 	//			boolean westDoor, boolean entrance, boolean exit, boolean pillarOfOO)
@@ -155,7 +156,6 @@ class RoomTest {
 		System.out.println(testRoom.toString());
 		assertTrue(testRoom.getHealingPotion() != null);	
 	}//end testRoomWithAllDoors_HealingPotionOnly
-	
 	
 	
 }//end RoomTest

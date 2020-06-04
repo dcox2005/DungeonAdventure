@@ -150,7 +150,7 @@ public class Dungeon
 		if (pillarOOCount == 4)
 			return false;
 		
-		if ((int)(Math.random() * 100) < 70)
+		if ((int)(Math.random() * 100) < 31)
 		{
 			pillarOOCount++;
 			return true;

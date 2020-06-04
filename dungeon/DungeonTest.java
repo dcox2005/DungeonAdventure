@@ -10,6 +10,8 @@ class DungeonTest {
 	@Test
 	void testDungeonForOnlyOneEntrance() 
 	{
+		System.out.println("--------------------------------------------------");
+		System.out.println("-----testDungeonForOnlyOneEntrance-----");
 		Dungeon testDungeon = new Dungeon();
 		Room [][] dungeonResults = testDungeon.getDungeon();
 		System.out.println(testDungeon.printFullDungeon());
@@ -30,6 +32,8 @@ class DungeonTest {
 	@Test
 	void testDungeonForOnlyOneExit() 
 	{
+		System.out.println("--------------------------------------------------");
+		System.out.println("-----testDungeonForOnlyOneExit-----");
 		Dungeon testDungeon = new Dungeon();
 		Room [][] dungeonResults = testDungeon.getDungeon();
 		System.out.println(testDungeon.printFullDungeon());
@@ -50,6 +54,8 @@ class DungeonTest {
 	@Test
 	void testDungeonForFourPillars() 
 	{
+		System.out.println("--------------------------------------------------");
+		System.out.println("-----testDungeonForFourPillars-----");
 		Dungeon testDungeon = new Dungeon();
 		Room [][] dungeonResults = testDungeon.getDungeon();
 		System.out.println(testDungeon.printFullDungeon());
@@ -65,11 +71,13 @@ class DungeonTest {
 		}//end for row
 		
 		assertTrue(results == 4);	
-	}//end testDungeonForOnlyOneEntrance
+	}//end testDungeonForFourPillars
 
 	@Test
 	void testingIfPrintFullDungeonPrintsOutProperly() 
 	{
+		System.out.println("--------------------------------------------------");
+		System.out.println("-----testingIfPrintFullDungeonPrintsOutProperly-----");
 		Dungeon testDungeon = new Dungeon();
 		String dungeonString = testDungeon.printFullDungeon();
 		System.out.println(testDungeon.printFullDungeon());

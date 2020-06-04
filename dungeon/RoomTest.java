@@ -5,11 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 class RoomTest 
-{
-
-	//Room (boolean northDoor, boolean eastDoor, boolean southDoor, 
-	//			boolean westDoor, boolean entrance, boolean exit, boolean pillarOfOO)
-	
+{	
 	@Test
 	void testIfToStringPrintsTheRoomProperly_EmptyRoomNoDoor() 
 	{

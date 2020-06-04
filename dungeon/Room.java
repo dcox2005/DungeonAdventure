@@ -15,15 +15,19 @@ public class Room
 	
 	Room ()
 	{	
-/*
-		this.healingPotion = generateHealingPotion();
-		this.visionPotion = generateVisionPotion();
-		this.enemy = generateMonster();
-		this.hasPit = generatePit();
+		this.healingPotion = null;
+		this.visionPotion = null;
 		this.hero = null;
-		if (pillarOfOO == true)
-			numberOfThingsInRoom++;	
-*/		
+		this.enemy = null;
+		this.pillarOfOO = false;
+		this.hasPit = false;
+		this.hasEntrance = false;
+		this.hasExit = false;
+		this.northDoor = false;
+		this.eastDoor = false;
+		this.southDoor = false;
+		this.westDoor = false;
+		this.numberOfThingsInRoom = 0;	
 	}//end constructor
 	
 	@Override

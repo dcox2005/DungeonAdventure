@@ -177,5 +177,4 @@ class DungeonTest {
 				heroLocation[1] == dungeonEntrance[1]);
 	}//end testNewLocation_HeroShouldNotBeAbleToGoToAZoneWithAZeroRowOrColumn
 	
-	
 }//end DungeonTest

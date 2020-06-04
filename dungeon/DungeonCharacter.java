@@ -45,7 +45,7 @@ public abstract class DungeonCharacter
 //-----------------------------------------------------------------
 //explicit constructor to initialize instance variables -- it is called
 // by derived classes
-	public DungeonCharacter(String name)
+	protected DungeonCharacter(String name)
 	{
 		this.name = name;
 	}//end constructor

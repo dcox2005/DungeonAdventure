@@ -198,4 +198,84 @@ public class Dungeon
 		return this.dungeon;
 	}//end getDungeon()
 
+	public int[] getEntranceLocation()
+	{
+		int[] location = new int[2];
+		for (int row = 1; row < DUNGEON_ROWS - 1; row ++)
+		{
+			for (int column = 1; column < DUNGEON_COLUMNS - 1; column++)
+			{
+				if (dungeon[row][column].hasEntrance())
+				{
+					location[0] = row;
+					location[1] = column;
+				}//end if entrance
+				
+			}//end column for loop
+			
+		}//end row for loop	
+		
+		return location;
+		
+	}//end getEntranceLocation()
+	
+	public void newLocation(Hero hero, int row, int column)
+	{
+		System.out.println(hero.getName() + " has entered room [" + row + "][" + column + "]");
+		Room room = dungeon[row][column];
+		room.setHero(hero);
+		if (room.hasPit())
+		{
+			hero.subtractHitPoints(room.pitDamage());
+			room.setHasPit(false);
+		}//end if pit
+		
+		if (room.getHealingPotion() != null)
+		{
+			hero.setNumOfHealingPotion(hero.getnumOfHealingPotion() + 1);
+			System.out.println(hero.getName() + " found a healing potion. " + hero.getName() + " now has ["
+					+ hero.getnumOfHealingPotion() + "] healing potions");
+			room.setHealingPotion(null);
+		}//end if HealingPotion
+		
+		if (room.getVisionPotion() != null)
+		{
+			hero.setNumOfVisionPotion(hero.getnumOfVisionPotion() + 1);
+			System.out.println(hero.getName() + " found a vision potion. " + hero.getName() + " now has ["
+					+ hero.getnumOfVisionPotion() + "] vision potions");
+			room.setVisionPotion(null);
+		}//end if VisionPotion
+		
+		if (room.hasPillarOfOO())
+		{
+			hero.setNumOfPillarsFound(hero.getNumOfPillarsFound() + 1);
+			System.out.println(hero.getName() + " found a Pillar Of OO. " + hero.getName() + " now has ["
+					+ hero.getNumOfPillarsFound() + "] Pillars of OO. 4 Pillars are required to exit");
+			room.setPillarOfOO(false);
+		}//end if pillar
+		
+		if (room.getEnemy() != null)
+		{
+			System.out.println(hero.getName() + " found a monster in the room. " + hero.getName() + 
+					" will now have to battl " + room.getEnemy().getName());
+			//TODO What to do when an enemy is in the room
+			room.setEnemy(null);
+		}//end if enemy
+		
+		if (room.hasExit())
+		{
+			if (hero.getNumOfPillarsFound() >= 4)
+			{
+				System.out.println("You have reached the exit with all the pillars. You win.");
+			}//end if
+			
+			else
+			{
+				System.out.println("You need to have all four Pillars of OO to exit. You currently have [" + 
+							hero.getNumOfPillarsFound() + "] pillars. Keep going brave adventurer.");
+			}//end else
+				
+		}//end if exit
+	}//end newLocations()
+	
 }//end RoomFactory Class

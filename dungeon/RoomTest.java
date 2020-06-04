@@ -157,5 +157,28 @@ class RoomTest
 		assertTrue(testRoom.getHealingPotion() != null);	
 	}//end testRoomWithAllDoors_HealingPotionOnly
 	
+	@Test
+	void testPitDamage_ShouldBeBetweenOneAndTwenty()
+	{
+		System.out.println("--------------------------------------------------");
+		System.out.println("-----testPitDamage_ShouldBeBetweenOneAndTwenty-----");
+		Room testRoom = new Room(true, true, true, true, false, false, false);
+		testRoom.setHasPit(true);
+		testRoom.setHero(new Thief("TestCharacter"));
+		int pitDamage = testRoom.pitDamage();
+		assertTrue(pitDamage >= 1 && pitDamage <= 20);
+	}//end testPitDamage_ShouldBeBetweenOneAndTwenty
+	
+	@Test
+	void testPitDamage_ShouldBeZeroIfThereIsNoPit()
+	{
+		System.out.println("--------------------------------------------------");
+		System.out.println("-----testPitDamage_ShouldBeZeroIfThereIsNoPit-----");
+		Room testRoom = new Room(true, true, true, true, false, false, false);
+		testRoom.setHasPit(false);
+		int pitDamage = testRoom.pitDamage();
+		assertTrue(pitDamage == 0);
+	}//end testPitDamage_ShouldBeZeroIfThereIsNoPit
+
 	
 }//end RoomTest

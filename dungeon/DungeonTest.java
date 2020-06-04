@@ -110,4 +110,33 @@ class DungeonTest {
 		assertTrue(falseCount == 0);
 	}//testing the full print out of dungeon
 
+	@Test
+	void testGetEntranceLocation()
+	{
+		System.out.println("--------------------------------------------------");
+		System.out.println("-----testGetEntranceLocation-----");
+		Dungeon testDungeon = new Dungeon();
+		Room [][] dungeonResults = testDungeon.getDungeon();
+		System.out.println(testDungeon.printFullDungeon());
+		int[] testLocation = testDungeon.getEntranceLocation();
+		int dungeonRow = 0, dungeonColumn = 0;
+		for (int row = 1; row < dungeonResults.length - 1; row++)
+		{
+			for (int column = 1; column < dungeonResults[row].length - 1; column++)
+			{
+				if (dungeonResults[row][column].hasEntrance())
+				{
+					dungeonRow = row;
+					dungeonColumn = column;
+				}//end if
+					
+			}//end for column
+			
+		}//end for row
+		
+		System.out.println("[" + testLocation[0] + "," + testLocation[1] + "]");
+		assertTrue(testLocation[0] == dungeonRow && testLocation[1] == dungeonColumn);
+		
+	}//end testGetEntranceLocation()
+	
 }//end DungeonTest

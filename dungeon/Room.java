@@ -182,6 +182,15 @@ public class Room
 		return "E";
 	}//end roomIcon()
 	
+	public int pitDamage()
+	{
+		if (!this.hasPit)
+			return 0;
+		
+		int damageTaken = (int)((Math.random() * 20) + 1.0);
+		System.out.println(hero.getName() + " fell into a pit");
+		return damageTaken;
+	}//end pitDamage()
 	
 /*
  * ---------------------GETTERS-------------------------------	

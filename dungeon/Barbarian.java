@@ -12,7 +12,7 @@ public class Barbarian  extends Hero
 		this.setDamageMin(45);
 		this.setDamageMax(70);
 		this.setChanceToBlock(0.1);
-		this.setSpecialAbility(new CrushingBlow());
+		this.setSpecialAbility(AttackFactory.getCrushingBlowAttack());
 		this.setWeapon(new Axe());
 	}//end constructor
 

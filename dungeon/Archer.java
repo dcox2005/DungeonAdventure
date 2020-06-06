@@ -12,7 +12,7 @@ public class Archer extends Hero
 		this.setDamageMin(20);
 		this.setDamageMax(40);
 		this.setChanceToBlock(0.6);
-		this.setSpecialAbility(new Multishot());
+		this.setSpecialAbility(AttackFactory.getMultishotAttack());
 		this.setWeapon(new Bow());				
     }//end constructor
 

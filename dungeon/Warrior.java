@@ -20,7 +20,7 @@ public class Warrior extends Hero
 		this.setDamageMin(35);
 		this.setDamageMax(60);
 		this.setChanceToBlock(0.2);
-		this.setSpecialAbility(new CrushingBlow());
+		this.setSpecialAbility(AttackFactory.getCrushingBlowAttack());
 		this.setWeapon(new MightySword());
     }//end constructor
 

@@ -21,7 +21,7 @@ public class Sorceress extends Hero
 		this.setDamageMin(25);
 		this.setDamageMax(50);
 		this.setChanceToBlock(0.3);
-		this.setSpecialAbility(new SelfHeal());
+		this.setSpecialAbility(AttackFactory.getSelfHealAttack());
 		this.setWeapon(new Fireball());
     }//end constructor
     

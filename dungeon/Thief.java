@@ -20,7 +20,7 @@ public class Thief extends Hero
 		this.setDamageMin(20);
 		this.setDamageMax(40);
 		this.setChanceToBlock(0.5);
-		this.setSpecialAbility(new SupriseAttack());
+		this.setSpecialAbility(AttackFactory.getSupriseAttack());
 		this.setWeapon(new Kris());
     }//end constructor
     

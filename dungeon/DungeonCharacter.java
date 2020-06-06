@@ -135,25 +135,7 @@ hero classes and externally
     
 	public void attack(DungeonCharacter opponent)
 	{
-		boolean canAttack;
-		int damage;
-
-		canAttack = Math.random() <= chanceToHit;
-
-		if (canAttack){
-			System.out.println(name + this.getWeapon().toString() +
-					opponent.getName() + ":");
-			damage = (int)(Math.random() * (damageMax - damageMin + 1))
-						+ damageMin ;
-			opponent.getAttacked(damage);
-			System.out.println();
-		}//end if can attack
-		else{
-			System.out.println(getName() + "'s attack on " + opponent.getName() +
-								" failed!");
-			System.out.println();
-		}//end else
-
+		AttackFactory.getBasicAttack().preform(this, opponent);
 	}//end attack method
 	
 	public abstract void getAttacked(int damage);

@@ -1,6 +1,6 @@
 package dungeon;
 
-public class Multishot implements SpecialAbility {
+public class Multishot implements Attack {
 
 	private int maxNumOfShots = 5;
 	private int minNumOfShots = 1;
@@ -12,11 +12,11 @@ public class Multishot implements SpecialAbility {
 	}
 
 	@Override
-	public void preform(Hero hero, DungeonCharacter opponent) {
+	public void preform(DungeonCharacter attacking, DungeonCharacter opponent) {
 		int numOfShots = (int) Math.random() * (maxNumOfShots - minNumOfShots + 1) + minNumOfShots;
-		System.out.println(hero.getName() +"has recived " +numOfShots);
+		System.out.println(attacking.getName() +"has recived " +numOfShots);
 		for(int i = 0; i < numOfShots; i++) {
-			hero.attack(opponent);
+			attacking.attack(opponent);
 		}
 	}
 

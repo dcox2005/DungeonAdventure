@@ -1,6 +1,6 @@
 package dungeon;
 
-public class SupriseAttack implements SpecialAbility {
+public class SupriseAttack implements Attack {
 
 	@Override
 	public String getName() {
@@ -8,13 +8,14 @@ public class SupriseAttack implements SpecialAbility {
 	}
 
 	@Override
-	public void preform(Hero hero, DungeonCharacter opponent) {
+	public void preform(DungeonCharacter attacker, DungeonCharacter opponent) {
 		double surprise = Math.random();
 		if (surprise <= .4)
-		{
+		{ 
 			System.out.println("Surprise attack was successful!\n" + this.getName() + " gets an additional turn.");
-			hero.setNumTurns(hero.getNumTurns() + 1);
-			hero.attack(opponent);
+			//attacker.setNumTurns(attacker.getNumTurns() + 1);
+			attacker.attack(opponent);
+			attacker.attack(opponent);
 
 		}//end surprise
 		
@@ -25,7 +26,7 @@ public class SupriseAttack implements SpecialAbility {
 		}//end else if
 		
 		else
-		   hero.attack(opponent);
+		   attacker.attack(opponent);
 	
 
 	}

@@ -11,8 +11,6 @@ package dungeon;
 
 public class Sorceress extends Hero
 {
-	public final int MIN_SELFHEAL_VALUE = 25;
-	public final int MAX_SELFHEAL_VALUE = 50;
 
     Sorceress(String userName)
 	{
@@ -23,7 +21,7 @@ public class Sorceress extends Hero
 		this.setDamageMin(25);
 		this.setDamageMax(50);
 		this.setChanceToBlock(0.3);
-		this.setSpecialAbility(new SelfHeal(MIN_SELFHEAL_VALUE, MAX_SELFHEAL_VALUE));
+		this.setSpecialAbility(new SelfHeal());
 		this.setWeapon(new Fireball());
     }//end constructor
     

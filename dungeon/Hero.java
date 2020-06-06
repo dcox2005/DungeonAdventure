@@ -31,7 +31,7 @@ public abstract class Hero extends DungeonCharacter
 {
 	private double chanceToBlock;
 	private int numTurns, numOfHealingPotion, numOfVisionPotion, numOfPillarsFound;
-	private SpecialAbility specialAbility;
+	private Attack specialAbility;
 
 //calls base constructor and gets name of hero from user
 	protected Hero(String name)
@@ -85,9 +85,9 @@ This method is called by: subtractHitPoints()
 
 				    switch (choice)
 				    {
-					    case 1: this.attack(opponent);
+					    case 1: attack(opponent);
 					        break;
-					    case 2: this.specialAbility.preform(this, opponent);
+					    case 2: specialAbility.preform(this, opponent);
 					        break;
 					    default:
 					        System.out.println("invalid choice!");
@@ -155,7 +155,7 @@ This method is called by: subtractHitPoints()
 		this.numTurns = numTurns;
 	}//end setNumTurns
 	
-	public void setSpecialAbility(SpecialAbility specialAbility) {
+	public void setSpecialAbility(Attack specialAbility) {
 		this.specialAbility = specialAbility;
 	}//end setSpecialAbility()
 	

@@ -1,14 +1,9 @@
 package dungeon;
 
-public class SelfHeal implements SpecialAbility {
+public class SelfHeal implements Attack {
 
-	private int MAX_SELFHEAL_VALUE;
-	private int MIN_SELFHEAL_VALUE;
-
-	public SelfHeal(int MIN_ADD, int MAX_ADD) {
-		this.MIN_SELFHEAL_VALUE = MIN_ADD;
-		this.MAX_SELFHEAL_VALUE = MAX_ADD;
-	}
+	private int MAX_SELFHEAL_VALUE = 25;
+	private int MIN_SELFHEAL_VALUE = 20;
 
 	@Override
 	public String getName() {
@@ -16,11 +11,11 @@ public class SelfHeal implements SpecialAbility {
 	}
 
 	@Override
-	public void preform(Hero hero, DungeonCharacter opponent) {
+	public void preform(DungeonCharacter attacker, DungeonCharacter opponent) {
 		int hPoints;
 		hPoints = (int)(Math.random() * (MAX_SELFHEAL_VALUE - MIN_SELFHEAL_VALUE + 1)) + MIN_SELFHEAL_VALUE;
-		hero.addHitPoints(hPoints);
-		System.out.println(hero.getName() + " added [" + hPoints + "] points.\n" + "Total hit points remaining are: " + hero.getHitPoints());
+		attacker.addHitPoints(hPoints);
+		System.out.println(attacker.getName() + " added [" + hPoints + "] points.\n" + "Total hit points remaining are: " + attacker.getHitPoints());
 		System.out.println();
 	}
 

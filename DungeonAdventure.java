@@ -52,14 +52,19 @@ public class DungeonAdventure
 		Dungeon theDungeon;
 		printInstruction();
 		
+		
 		do
 		{	theHero = HeroFactory.createNewHero(); //chooseHero();
 			theDungeon = new Dungeon();
+			int [] local = theDungeon.getHeroLocation();
 			
+			System.out.println();
+			System.out.println("Your Starting Location is: " +"[" + local[0] +"]" + "[" + local[1] + "]");
+		
 		   
-		    do{ int [] local = theDungeon.getHeroLocation();
-		    	Room start = theDungeon.getRoom(local[0], local[1]);
-		    	System.out.print("your are here \n" + start.toString() +"\n");
+		    do{  local = theDungeon.getHeroLocation();
+		    	
+		    	System.out.println("How would you like to continue");
 		    	System.out.println("0. Get Status");
 		    	System.out.println("1. Go North ^");
 		    	System.out.println("2. Go East >");
@@ -75,11 +80,11 @@ public class DungeonAdventure
 
 		    switch (choice){	
 		    
-		    	case 0: System.out.print(theHero.getName() + "has" + theHero.getHitPoints() +" hit points " + 
-		    	theHero.getnumOfHealingPotion() + " healing potions \n " + theHero.getnumOfVisionPotion() + "vision potions and has found" +
-		    			theHero.getNumOfPillarsFound() );
-						theDungeon.newLocation(theHero, local[0] - 1, local[1]);
-						break;
+		    	case 0: System.out.print(theHero.getName() + " has " + theHero.getHitPoints() +" hit points " + 
+		    	theHero.getnumOfHealingPotion() + " healing potions \n " + theHero.getnumOfVisionPotion() + 
+		    			" vision potions and has found " +
+		    			theHero.getNumOfPillarsFound()+ " Pillars of OO\n");
+		    			break;  
 			    case 1: local = theDungeon.getHeroLocation();
 	    				theDungeon.newLocation(theHero, local[0] - 1, local[1]);
 	    				break;  
@@ -120,7 +125,8 @@ true if the user chooses to continue, false otherwise.
 		System.out.println("You will be able to move North, South, East, West");
 		System.out.println("You will be collect the 4 Pillars of OO and find the exit to win");
 		System.out.print( "Some Things to know: \n M - Multiple Items\n P - Pit \n I - Entrance (In) \n"
-				+ " O - Exit (Out)\n V - Vision Potion \n H - Healing Potion\n E - Empty Room\n X - Monster");
+				+ " O - Exit (Out)\n V - Vision Potion \n H - Healing Potion\n E - Empty Room\n X - Monster\n"
+				+ " Y - Pillar of OO\n");
 		System.out.println("Good Luck, The adventure begins");
 		
 	}
@@ -134,47 +140,9 @@ true if the user chooses to continue, false otherwise.
 		return (again == 'Y' || again == 'y');
 	}//end playAgain method
 
-/*
- * -------------------------------------------------------------------
-battle is the actual combat portion of the game.  It requires a Hero
-and a Monster to be passed in.  Battle occurs in rounds.  The Hero
-goes first, then the Monster.  At the conclusion of each round, the
-user has the option of quitting.
----------------------------------------------------------------------
-	
-	public static void battle(Hero theHero, Monster theMonster)
-	{
-		char pause = 'p';
-		System.out.println(theHero.getName() + " battles " +
-							theMonster.getName());
-		System.out.println("---------------------------------------------");
 
-		//do battle
-		while (theHero.isAlive() && theMonster.isAlive() && pause != 'q')
-		{
-		    //hero goes first
-			theHero.battleChoices(theMonster);
 
-			//monster's turn (provided it's still alive!)
-			if (theMonster.isAlive())
-			    theMonster.attack(theHero);
-
-			//let the player bail out if desired
-			System.out.print("\n-->q to quit, anything else to continue: ");
-			pause = Keyboard.readChar();
-
-		}//end battle loop
-
-		if (!theMonster.isAlive())
-		    System.out.println(theHero.getName() + " was victorious!");
-		else if (!theHero.isAlive())
-			System.out.println(theHero.getName() + " was defeated :-(");
-		else//both are alive so user quit the game
-			System.out.println("Quitters never win ;-)");
-
-	}//end battle method
-*/
-}//end Dungeon class
+}//end DungeonAdventure class
 
 
 

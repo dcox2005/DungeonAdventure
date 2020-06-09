@@ -253,11 +253,6 @@ public class Dungeon
 	{
 		return this.dungeon;
 	}//end getDungeon()
-	
-	public Room getRoom(int row, int col) 
-	{
-		return this.dungeon[row][col];
-	}//end getRoom
 
 	public int[] getEntranceLocation()
 	{

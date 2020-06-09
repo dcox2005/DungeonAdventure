@@ -1,4 +1,4 @@
-
+package dungeon;
 
 /**
  * Title: DungeonCharacter.java
@@ -33,53 +33,22 @@
  * @version 1.0
  */
 
-public abstract class DungeonCharacter implements Comparable
+public abstract class DungeonCharacter
 {
-
-	protected String name;
-	protected int hitPoints;
-	protected int attackSpeed;
-	protected double chanceToHit;
-	protected int damageMin, damageMax;
-
-	public int compareTo(Object o)
-	{
-		return 1;
-	}
-
+	private String name;
+	private int hitPoints;
+	private int attackSpeed;
+	private double chanceToHit;
+	private int damageMin, damageMax;
+	private Weapon weapon;
+	
 //-----------------------------------------------------------------
 //explicit constructor to initialize instance variables -- it is called
 // by derived classes
-	public DungeonCharacter(String name, int hitPoints, int attackSpeed,
-				     double chanceToHit, int damageMin, int damageMax)
+	protected DungeonCharacter(String name)
 	{
-
 		this.name = name;
-		this.hitPoints = hitPoints;
-		this.attackSpeed = attackSpeed;
-		this.chanceToHit = chanceToHit;
-		this.damageMin = damageMin;
-		this.damageMax = damageMax;
-
 	}//end constructor
-
-//-----------------------------------------------------------------
-	public String getName()
-	{
-		return name;
-	}//end getName
-
-//-----------------------------------------------------------------
-	public int getHitPoints()
-	{
-		return hitPoints;
-	}//end getHitPoints
-//-----------------------------------------------------------------
-	public int getAttackSpeed()
-	{
-		return attackSpeed;
-	}//end getAttackSpeed
-
 
 /*-------------------------------------------------------
 addHitPoints is used to increment the hitpoints a dungeon character has
@@ -90,17 +59,16 @@ Returns: nothing
 This method calls: nothing
 This method is called by: heal method of monsters and Sorceress
 ---------------------------------------------------------*/
+	
 	public void addHitPoints(int hitPoints)
 	{
 		if (hitPoints <=0)
 			System.out.println("Hitpoint amount must be positive.");
+		
 		else
-		{
 			this.hitPoints += hitPoints;
-			//System.out.println("Remaining Hit Points: " + hitPoints);
-
-		}
-	}//end addHitPoints method
+		
+	}//end addHitPoints()
 
 /*-------------------------------------------------------
 subtractHitPoints is used to decrement the hitpoints a dungeon character has.
@@ -117,13 +85,15 @@ This method is called by: overridden versions in Hero and Monster
 	{
 		if (hitPoints <0)
 			System.out.println("Hitpoint amount must be positive.");
+		
 		else if (hitPoints >0)
 		{
 			this.hitPoints -= hitPoints;
 			if (this.hitPoints < 0)
 				this.hitPoints = 0;
-			System.out.println(getName() + " hit " +
-								" for <" + hitPoints + "> points damage.");
+			
+			System.out.println(getName() + " took " +
+								"<" + hitPoints + "> points of damage.");
 			System.out.println(getName() + " now has " +
 								getHitPoints() + " hit points remaining.");
 			System.out.println();
@@ -131,9 +101,8 @@ This method is called by: overridden versions in Hero and Monster
 
 		if (this.hitPoints == 0)
 			System.out.println(name + " has been killed :-(");
-
-
-	}//end method
+		
+	}//end subtractHitPoints()
 
 /*-------------------------------------------------------
 isAlive is used to see if a character is still alive by checking hit points
@@ -143,7 +112,9 @@ Returns: true is hero is alive, false otherwise
 
 This method calls: nothing
 This method is called by: unknown (intended for external use)
----------------------------------------------------------*/
+---------------------------------------------------------
+*/
+	
     public boolean isAlive()
 	{
 	  return (hitPoints > 0);
@@ -161,35 +132,150 @@ This method calls: Math.random(), subtractHitPoints()
 This method is called by: overridden versions of the method in monster and
 hero classes and externally
 ---------------------------------------------------------*/
+    
 	public void attack(DungeonCharacter opponent)
 	{
-		boolean canAttack;
-		int damage;
-
-		canAttack = Math.random() <= chanceToHit;
-
-		if (canAttack)
-		{
-			damage = (int)(Math.random() * (damageMax - damageMin + 1))
-						+ damageMin ;
-			opponent.subtractHitPoints(damage);
-
-
-
-			System.out.println();
-		}//end if can attack
-		else
-		{
-
-			System.out.println(getName() + "'s attack on " + opponent.getName() +
-								" failed!");
-			System.out.println();
-		}//end else
-
+		AttackFactory.getBasicAttack().preform(this, opponent);
 	}//end attack method
+	
+	public abstract void getAttacked(int damage);
 
-//-----------------------------------------------------------------
+/*----------------------------Getters-------------------------------------
+ */	
+	
+	public String getName()
+	{
+		return this.name;
+	}//end getName
+	
+	public int getHitPoints()
+	{
+		return this.hitPoints;
+	}//end getHitPoints	
+	
+	public int getAttackSpeed()
+	{
+		return this.attackSpeed;
+	}//end getAttackSpeed	
+	
+	public double getChanceToHit() 
+	{
+		return this.chanceToHit;
+	}//end getChanceToHit
+
+	public int getDamageMin() 
+	{
+		return this.damageMin;
+	}//end getDamageMin
+
+	public int getDamageMax() 
+	{
+		return this.damageMax;
+	}//end getDamageMax
+
+	public Weapon getWeapon() 
+	{
+		return this.weapon;
+	}//end getWeapon
+	
+/*----------------------------Setters-------------------------------------
+ */
+	
+	protected void setName(final String name)
+	{
+		if (name == null)
+			throw new IllegalArgumentException("name passed into DungeonCharacter setName was null");
+		
+		this.name = name;
+	}//end setName
+
+	protected void setHitPoints(final int hitPoints)
+	{
+		if (hitPoints <= 0)
+			throw new IllegalArgumentException("hitPoints passed into DungeonCharacter setHitPoints was 0 or less: " + hitPoints);
+		
+		this.hitPoints = hitPoints;
+	}//end setHitPoints
+	
+	public void setAttackSpeed(int attackSpeed) 
+	{
+		if (attackSpeed <= 0)
+			throw new IllegalArgumentException("attackSpeed passed into DungeonCharacter setAttackSpeed was 0 or less: " + attackSpeed);
+		
+		this.attackSpeed = attackSpeed;
+	}//end setAttackSpeed	
+	
+	public void setChanceToHit(final double chanceToHit) 
+	{
+		if (chanceToHit <= 0)
+			throw new IllegalArgumentException("chanceToHit passed into DungeonCharacter setChanceToHit was 0 or less: " + chanceToHit);
+		
+		this.chanceToHit = chanceToHit;
+	}//end setChanceToHit
+
+	public void setDamageMin(final int damageMin) 
+	{
+		if (damageMin <= 0)
+			throw new IllegalArgumentException("damageMin passed into DungeonCharacter setsetDamageMin was 0 or less: " + damageMin);
+		
+		this.damageMin = damageMin;
+	}//end setDamageMin	
+	
+	public void setDamageMax(final int damageMax) 
+	{
+		if (damageMax <= 0)
+			throw new IllegalArgumentException("damageMax passed into DungeonCharacter setDamageMax was 0 or less: " + damageMax);
+		
+		if (damageMax < damageMin)
+			throw new IllegalArgumentException("damageMax (" + damageMax + ") passed into DungeonCharacter setDamageMax was less than damageMin: " + this.damageMin);
+		
+		this.damageMax = damageMax;
+	}//end setDamageMax	
+
+	public void setWeapon(Weapon weapon) 
+	{
+		if (weapon == null)
+			throw new IllegalArgumentException("weapon object passed into DungeonCharacter setWeapon was null");
+		
+		this.weapon = weapon;
+	}//end setWeapon	
 
 
+
+	
+	
+
+
+	
+	
+
+	
+	
+	
 
 }//end class Character
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

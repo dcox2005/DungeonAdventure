@@ -244,6 +244,10 @@ public class Room
 
 	public void setNumberOfThingsInRoom(int numberOfThingsInRoom) 
 	{
+		if (numberOfThingsInRoom < 0)
+			throw new IllegalArgumentException ("numberOfThingsInRoom passed into Room "
+					+ "setNumberOfThingsInRoom() was less than 0. numberPassedIn: " + numberOfThingsInRoom);
+		
 		this.numberOfThingsInRoom = numberOfThingsInRoom;
 	}//end setNumberOfThingsInRoom()
 

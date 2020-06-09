@@ -7,221 +7,197 @@ import org.junit.jupiter.api.Test;
 class RoomTest 
 {	
 	@Test
-	void testIfToStringPrintsTheRoomProperly_EmptyRoomNoDoor() 
+	void testIfToStringPrintsTheRoomProperly_EmptyRoomNoDoor_TrueIfPrintOutShowsEmptyAndNoDoors() 
 	{
 		System.out.println("--------------------------------------------------");
-		System.out.println("-----testIfToStringPrintsTheRoomProperly_EmptyRoomNoDoor-----");
-		
+		System.out.println("-----testIfToStringPrintsTheRoomProperly_EmptyRoomNoDoor_TrueIfPrintOutShowsEmptyAndNoDoors-----");
 		Room testRoom = new Room();
-		testRoom.setNorthDoor(false);
-		testRoom.setEastDoor(false);
-		testRoom.setSouthDoor(false);
-		testRoom.setWestDoor(false);
-		testRoom.setEntrance(false);
-		testRoom.setExit(false);
-		testRoom.setPillarOfOO(false);
-		testRoom.setHealingPotion(null);
-		testRoom.setVisionPotion(null);
-		testRoom.setEnemy(null);
-		testRoom.setHasPit(false);
 		System.out.println(testRoom.toString());
 		String resultsShouldBe = "***\n*E*\n***";
 		assertTrue((testRoom.toString()).equalsIgnoreCase(resultsShouldBe));
-	}//end testIfToStringPrintsTheRoomProperly_EmptyRoomNoDoor	
+	}//end testIfToStringPrintsTheRoomProperly_EmptyRoomNoDoor_TrueIfPrintOutShowsEmptyAndNoDoors	
 	
 	@Test
-	void testRoomWithOnlyNorthDoor_EmptyRoom() 
+	void testRoomWithOnlyNorthDoor_EmptyRoom_ShouldBeTrueIfPrintOutReflectsNorthDoorAndEmpty() 
 	{
 		System.out.println("--------------------------------------------------");
-		System.out.println("-----testRoomWithOnlyNorthDoor_EmptyRoom-----");
+		System.out.println("-----testRoomWithOnlyNorthDoor_EmptyRoom_ShouldBeTrueIfPrintOutReflectsNorthDoorAndEmpty-----");
 		Room testRoom = new Room();
 		testRoom.setNorthDoor(true);
-		testRoom.setEastDoor(false);
-		testRoom.setSouthDoor(false);
-		testRoom.setWestDoor(false);
-		testRoom.setEntrance(false);
-		testRoom.setExit(false);
-		testRoom.setPillarOfOO(false);
 		System.out.println(testRoom.toString());
-		testRoom.setHealingPotion(null);
-		testRoom.setVisionPotion(null);
-		testRoom.setEnemy(null);
-		testRoom.setHasPit(false);
 		String resultsShouldBe = "*-*\n*E*\n***";
 		assertTrue((testRoom.toString()).equalsIgnoreCase(resultsShouldBe));
-	}//end testRoomWithOnlyNorthDoor_EmptyRoom
+	}//end testRoomWithOnlyNorthDoor_EmptyRoom_ShouldBeTrueIfPrintOutReflectsNorthDoorAndEmpty
 	
 	@Test
-	void testRoomWithOnlySouthDoor_EmptyRoom()
+	void testRoomWithOnlySouthDoor_EmptyRoom_ShouldBeTrueIfPrintOutReflectsSouthDoorAndEmpty()
 	{
 		System.out.println("--------------------------------------------------");
-		System.out.println("-----testRoomWithOnlySouthDoor_EmptyRoom-----");
+		System.out.println("-----testRoomWithOnlySouthDoor_EmptyRoom_ShouldBeTrueIfPrintOutReflectsSouthDoorAndEmpty-----");
 		Room testRoom = new Room();
-		testRoom.setNorthDoor(false);
-		testRoom.setEastDoor(false);
 		testRoom.setSouthDoor(true);
-		testRoom.setWestDoor(false);
-		testRoom.setEntrance(false);
-		testRoom.setExit(false);
-		testRoom.setPillarOfOO(false);
-		testRoom.setHealingPotion(null);
-		testRoom.setVisionPotion(null);
-		testRoom.setEnemy(null);
-		testRoom.setHasPit(false);
 		System.out.println(testRoom.toString());
 		String resultsShouldBe = "***\n*E*\n*-*";
 		assertTrue((testRoom.toString()).equalsIgnoreCase(resultsShouldBe));	
-	}//end testRoomWithOnlySouthDoor_EmptyRoom
+	}//end testRoomWithOnlySouthDoor_EmptyRoom_ShouldBeTrueIfPrintOutReflectsSouthDoorAndEmpty
 
 	@Test
-	void testRoomWithOnlyEastDoor_EmptyRoom()
+	void testRoomWithOnlyEastDoor_EmptyRoom_ShouldBeTrueIfPrintOutReflectsEastDoorAndEmpty()
 	{
 		System.out.println("--------------------------------------------------");
-		System.out.println("-----testRoomWithOnlyEastDoor_EmptyRoom-----");
+		System.out.println("-----testRoomWithOnlyEastDoor_EmptyRoom_ShouldBeTrueIfPrintOutReflectsEastDoorAndEmpty-----");
 		Room testRoom = new Room();
-		testRoom.setNorthDoor(false);
 		testRoom.setEastDoor(true);
-		testRoom.setSouthDoor(false);
-		testRoom.setWestDoor(false);
-		testRoom.setEntrance(false);
-		testRoom.setExit(false);
-		testRoom.setPillarOfOO(false);
-		testRoom.setHealingPotion(null);
-		testRoom.setVisionPotion(null);
-		testRoom.setEnemy(null);
-		testRoom.setHasPit(false);
 		System.out.println(testRoom.toString());
 		String resultsShouldBe = "***\n*E|\n***";
 		assertTrue((testRoom.toString()).equalsIgnoreCase(resultsShouldBe));	
-	}//end testRoomWithOnlyEastDoor_EmptyRoom
+	}//end testRoomWithOnlyEastDoor_EmptyRoom_ShouldBeTrueIfPrintOutReflectsEastDoorAndEmpty
 	
 	@Test
-	void testRoomWithOnlyWestDoor_EmptyRoom()
+	void testRoomWithOnlyWestDoor_EmptyRoom_ShouldBeTrueIfPrintOutReflectsWestDoorAndEmpty()
 	{
 		System.out.println("--------------------------------------------------");
-		System.out.println("-----testRoomWithOnlyWestDoor_EmptyRoom-----");
+		System.out.println("-----testRoomWithOnlyWestDoor_EmptyRoom_ShouldBeTrueIfPrintOutReflectsWestDoorAndEmpty-----");
 		Room testRoom = new Room();
-		testRoom.setNorthDoor(false);
-		testRoom.setEastDoor(false);
-		testRoom.setSouthDoor(false);
 		testRoom.setWestDoor(true);
-		testRoom.setEntrance(false);
-		testRoom.setExit(false);
-		testRoom.setPillarOfOO(false);
-		testRoom.setHealingPotion(null);
-		testRoom.setVisionPotion(null);
-		testRoom.setEnemy(null);
-		testRoom.setHasPit(false);
 		System.out.println(testRoom.toString());
 		String resultsShouldBe = "***\n|E*\n***";
 		assertTrue((testRoom.toString()).equalsIgnoreCase(resultsShouldBe));		
-	}//end testRoomWithOnlyWestDoor_EmptyRoom
+	}//end testRoomWithOnlyWestDoor_EmptyRoom_ShouldBeTrueIfPrintOutReflectsWestDoorAndEmpty
 	
 	@Test
-	void testRoomWithAllDoors_EmptyRoom()
+	void testRoomWithAllDoors_EmptyRoom_ShouldBeTrueIfPrintOutReflectsAllDoorsAndEmpty()
 	{
 		System.out.println("--------------------------------------------------");
-		System.out.println("-----testRoomWithAllDoors_EmptyRoom-----");
+		System.out.println("-----testRoomWithAllDoors_EmptyRoom_ShouldBeTrueIfPrintOutReflectsAllDoorsAndEmpty-----");
 		Room testRoom = new Room();
 		testRoom.setNorthDoor(true);
 		testRoom.setEastDoor(true);
 		testRoom.setSouthDoor(true);
 		testRoom.setWestDoor(true);
-		testRoom.setEntrance(false);
-		testRoom.setExit(false);
-		testRoom.setPillarOfOO(false);
-		testRoom.setHealingPotion(null);
-		testRoom.setVisionPotion(null);
-		testRoom.setEnemy(null);
-		testRoom.setHasPit(false);
 		System.out.println(testRoom.toString());
 		String resultsShouldBe = "*-*\n|E|\n*-*";
 		assertTrue((testRoom.toString()).equalsIgnoreCase(resultsShouldBe));		
-	}//end testRoomWithAllDoors_EmptyRoom
+	}//end testRoomWithAllDoors_EmptyRoom_ShouldBeTrueIfPrintOutReflectsAllDoorsAndEmpty
 	
 	@Test
-	void testRoomWithAllDoors_EntranceOnly()
+	void testSetExit_RoomWithAllDoorAndEntranceOnlyInside_ShouldTestTrueEntranceIsNotFalseAndPrintOutShowsOnlyEntrance()
 	{
 		System.out.println("--------------------------------------------------");
-		System.out.println("-----testRoomWithAllDoors_EntranceOnly-----");
+		System.out.println("-----testSetExit_RoomWithAllDoorAndEntranceOnlyInside_ShouldTestTrueEntranceIsNotFalseAndPrintOutShowsOnlyEntrance-----");
 		Room testRoom = new Room();
 		testRoom.setNorthDoor(true);
 		testRoom.setEastDoor(true);
 		testRoom.setSouthDoor(true);
 		testRoom.setWestDoor(true);
 		testRoom.setEntrance(true);
-		testRoom.setExit(false);
-		testRoom.setPillarOfOO(false);
-		testRoom.setHealingPotion(null);
-		testRoom.setVisionPotion(null);
-		testRoom.setEnemy(null);
-		testRoom.setHasPit(false);
 		System.out.println(testRoom.toString());
-		assertTrue(testRoom.hasEntrance());	
-	}//end testRoomWithAllDoors_EntranceOnly
+		String resultsShouldBe = "*-*\n|I|\n*-*";
+		assertTrue(testRoom.hasEntrance() && 
+				testRoom.toString().equalsIgnoreCase(resultsShouldBe));
+	}//end testSetExit_RoomWithAllDoorAndEntranceOnlyInside_ShouldTestTrueEntranceIsNotFalseAndPrintOutShowsOnlyEntrance
 	
 	@Test
-	void testRoomWithAllDoors_ExitOnly()
+	void testSetExit_RoomWithAllDoorAndExitOnlyInside_ShouldTestTrueExitIsNotFalseAndPrintOutShowsOnlyExit()
 	{
 		System.out.println("--------------------------------------------------");
-		System.out.println("-----testRoomWithAllDoors_ExitOnly-----");
+		System.out.println("-----testSetExit_RoomWithAllDoorAndExitOnlyInside_ShouldTestTrueExitIsNotFalseAndPrintOutShowsOnlyExit-----");
 		Room testRoom = new Room();
 		testRoom.setNorthDoor(true);
 		testRoom.setEastDoor(true);
 		testRoom.setSouthDoor(true);
 		testRoom.setWestDoor(true);
-		testRoom.setEntrance(false);
 		testRoom.setExit(true);
-		testRoom.setPillarOfOO(false);
-		testRoom.setHealingPotion(null);
-		testRoom.setVisionPotion(null);
-		testRoom.setEnemy(null);
-		testRoom.setHasPit(false);
 		System.out.println(testRoom.toString());
-		assertTrue(testRoom.hasExit());	
-	}//end testRoomWithAllDoors_ExitOnly
+		String resultsShouldBe = "*-*\n|O|\n*-*";
+		assertTrue(testRoom.hasExit() && 
+				testRoom.toString().equalsIgnoreCase(resultsShouldBe));	
+		}//end testSetExit_RoomWithAllDoorAndExitOnlyInside_ShouldTestTrueExitIsNotFalseAndPrintOutShowsOnlyExit
 
 	@Test
-	void testRoomWithAllDoors_PillarOnly()
+	void testSetPillarOfOO_RoomWithAllDoorAndPillarOfOOOnlyInside_ShouldTestTruePillarOfOOIsNotFalseAndPrintOutShowsOnlyPillarOfOO()
 	{
 		System.out.println("--------------------------------------------------");
-		System.out.println("-----testRoomWithAllDoors_PillarOnly-----");
+		System.out.println("-----testSetPillarOfOO_RoomWithAllDoorAndPillarOfOOOnlyInside_ShouldTestTruePillarOfOOIsNotFalseAndPrintOutShowsOnlyPillarOfOO-----");
 		Room testRoom = new Room();
 		testRoom.setNorthDoor(true);
 		testRoom.setEastDoor(true);
 		testRoom.setSouthDoor(true);
 		testRoom.setWestDoor(true);
-		testRoom.setEntrance(false);
-		testRoom.setExit(false);
 		testRoom.setPillarOfOO(true);
-		testRoom.setHealingPotion(null);
-		testRoom.setVisionPotion(null);
-		testRoom.setEnemy(null);
-		testRoom.setHasPit(false);
 		System.out.println(testRoom.toString());
-		assertTrue(testRoom.hasPillarOfOO());	
-	}//end testRoomWithAllDoors_PillarOnly
-
+		String resultsShouldBe = "*-*\n|Y|\n*-*";
+		assertTrue(testRoom.hasPillarOfOO() && 
+				testRoom.toString().equalsIgnoreCase(resultsShouldBe));
+	}//end testSetPillarOfOO_RoomWithAllDoorAndPillarOfOOOnlyInside_ShouldTestTruePillarOfOOIsNotFalseAndPrintOutShowsOnlyPillarOfOO
+	
 	@Test
-	void testRoomWithAllDoor_HealingPotionOnly()
+	void testSetHasPit_RoomWithAllDoorAndPitOnlyInside_ShouldTestTruePitIsNotFalseAndPrintOutShowsOnlyPit()
 	{
 		System.out.println("--------------------------------------------------");
-		System.out.println("-----testRoomWithAllDoors_HealingPotionOnly-----");
+		System.out.println("-----testSetHasPit_RoomWithAllDoorAndPitOnlyInside_ShouldTestTruePitIsNotFalseAndPrintOutShowsOnlyPit-----");
 		Room testRoom = new Room();
 		testRoom.setNorthDoor(true);
 		testRoom.setEastDoor(true);
 		testRoom.setSouthDoor(true);
 		testRoom.setWestDoor(true);
-		testRoom.setEntrance(false);
-		testRoom.setExit(false);
-		testRoom.setPillarOfOO(false);
-		testRoom.setHealingPotion(new HealingPotion());
-		testRoom.setVisionPotion(null);
-		testRoom.setEnemy(null);
-		testRoom.setHasPit(false);
+		testRoom.setHasPit(true);
 		System.out.println(testRoom.toString());
-		assertTrue(testRoom.getHealingPotion() != null);	
-	}//end testRoomWithAllDoors_HealingPotionOnly
+		String resultsShouldBe = "*-*\n|P|\n*-*";
+		assertTrue(testRoom.hasPit() && 
+				testRoom.toString().equalsIgnoreCase(resultsShouldBe));
+	}//end testSetHasPit_RoomWithAllDoorAndPitOnlyInside_ShouldTestTruePitIsNotFalseAndPrintOutShowsOnlyPit
+
+	@Test
+	void testSetHealingPotion_RoomWithAllDoorAndHealingPotionOnlyInside_ShouldTestTrueHealingPotionIsNotNullAndPrintOutShowsOnlyHealingPotion()
+	{
+		System.out.println("--------------------------------------------------");
+		System.out.println("-----testSetHealingPotion_RoomWithAllDoorAndHealingPotionOnlyInside_ShouldTestTrueHealingPotionIsNotNullAndPrintOutShowsOnlyHealingPotion-----");
+		Room testRoom = new Room();
+		testRoom.setNorthDoor(true);
+		testRoom.setEastDoor(true);
+		testRoom.setSouthDoor(true);
+		testRoom.setWestDoor(true);
+		testRoom.setHealingPotion(new HealingPotion());
+		System.out.println(testRoom.toString());
+		String resultsShouldBe = "*-*\n|H|\n*-*";
+		assertTrue(testRoom.getHealingPotion() != null && 
+				testRoom.toString().equalsIgnoreCase(resultsShouldBe));
+	}//end testSetHealingPotion_RoomWithAllDoorAndHealingPotionOnlyInside_ShouldTestTrueHealingPotionIsNotNullAndPrintOutShowsOnlyHealingPotion
+	
+	@Test
+	void testSetVisionPotion_RoomWithAllDoorAndVisionPotionOnlyInside_ShouldTestTrueVisionPotionIsNotNullAndPrintOutShowsOnlyVisionPotion()
+	{
+		System.out.println("--------------------------------------------------");
+		System.out.println("-----testSetVisionPotion_RoomWithAllDoorAndVisionPotionOnlyInside_ShouldTestTrueVisionPotionIsNotNullAndPrintOutShowsOnlyVisionPotion-----");
+		Room testRoom = new Room();
+		testRoom.setNorthDoor(true);
+		testRoom.setEastDoor(true);
+		testRoom.setSouthDoor(true);
+		testRoom.setWestDoor(true);
+		testRoom.setVisionPotion(new VisionPotion());
+		System.out.println(testRoom.toString());
+		String resultsShouldBe = "*-*\n|V|\n*-*";
+		assertTrue(testRoom.getVisionPotion() != null && 
+				testRoom.toString().equalsIgnoreCase(resultsShouldBe));
+	}//end testSetVisionPotion_RoomWithAllDoorAndVisionPotionOnlyInside_ShouldTestTrueVisionPotionIsNotNullAndPrintOutShowsOnlyVisionPotion
+	
+	@Test
+	void testSetEnemy_RoomWithAllDoorAndMonsterOnlyInside_ShouldTestTrueIfMonsterIsNotNullAndPrintOutShowsOnlyMonster()
+	{
+		System.out.println("--------------------------------------------------");
+		System.out.println("-----testSetEnemy_RoomWithAllDoorAndMonsterOnlyInside_ShouldTestTrueIfMonsterIsNotNullAndPrintOutShowsOnlyMonster-----");
+		Room testRoom = new Room();
+		testRoom.setNorthDoor(true);
+		testRoom.setEastDoor(true);
+		testRoom.setSouthDoor(true);
+		testRoom.setWestDoor(true);
+		testRoom.setEnemy(MonsterFactory.createMonster());
+		System.out.println(testRoom.toString());
+		String resultsShouldBe = "*-*\n|X|\n*-*";
+		assertTrue(testRoom.getEnemy() != null && 
+				testRoom.toString().equalsIgnoreCase(resultsShouldBe));
+	}//end testSetEnemy_RoomWithAllDoorAndMonsterOnlyInside_ShouldTestTrueIfMonsterIsNotNullAndPrintOutShowsOnlyMonster
 	
 	@Test
 	void testPitDamage_ShouldBeBetweenOneAndTwenty()
@@ -229,13 +205,6 @@ class RoomTest
 		System.out.println("--------------------------------------------------");
 		System.out.println("-----testPitDamage_ShouldBeBetweenOneAndTwenty-----");
 		Room testRoom = new Room();
-		testRoom.setNorthDoor(true);
-		testRoom.setEastDoor(true);
-		testRoom.setSouthDoor(true);
-		testRoom.setWestDoor(true);
-		testRoom.setEntrance(false);
-		testRoom.setExit(false);
-		testRoom.setPillarOfOO(false);
 		testRoom.setHasPit(true);
 		testRoom.setHero(new Thief("TestCharacter"));
 		int pitDamage = testRoom.pitDamage();
@@ -248,6 +217,16 @@ class RoomTest
 		System.out.println("--------------------------------------------------");
 		System.out.println("-----testPitDamage_ShouldBeZeroIfThereIsNoPit-----");
 		Room testRoom = new Room();
+		int pitDamage = testRoom.pitDamage();
+		assertTrue(pitDamage == 0);
+	}//end testPitDamage_ShouldBeZeroIfThereIsNoPit
+
+	@Test
+	void testSetNumberOfThingsInRoom_ShouldBeEqualToAmountSet()
+	{
+		System.out.println("--------------------------------------------------");
+		System.out.println("-----testSetNumberOfThingsInRoom_ShouldBeEqualToAmountSet-----");
+		Room testRoom = new Room();
 		testRoom.setNorthDoor(true);
 		testRoom.setEastDoor(true);
 		testRoom.setSouthDoor(true);
@@ -256,9 +235,37 @@ class RoomTest
 		testRoom.setExit(false);
 		testRoom.setPillarOfOO(false);
 		testRoom.setHasPit(false);
-		int pitDamage = testRoom.pitDamage();
-		assertTrue(pitDamage == 0);
-	}//end testPitDamage_ShouldBeZeroIfThereIsNoPit
-
+		int numberOfThingsWantedInRoom = 5;
+		testRoom.setNumberOfThingsInRoom(numberOfThingsWantedInRoom);
+		assertTrue(testRoom.getNumberOfThingsInRoom() == 5);
+	}//end testSetNumberOfThingsInRoom_ShouldBeEqualToAmountSet
+	
+	@Test
+	void testSetNumberOfThingsInRoom_ShouldThrowExceptionIfLessThan0()
+	{
+		System.out.println("--------------------------------------------------");
+		System.out.println("-----testSetNumberOfThingsInRoom_ShouldThrowExceptionIfLessThan0-----");
+		Room testRoom = new Room();
+		testRoom.setNorthDoor(true);
+		testRoom.setEastDoor(true);
+		testRoom.setSouthDoor(true);
+		testRoom.setWestDoor(true);
+		testRoom.setEntrance(false);
+		testRoom.setExit(false);
+		testRoom.setPillarOfOO(false);
+		testRoom.setHasPit(false);
+		int numberOfThingsWantedInRoom = -1;
+		try
+		{
+			testRoom.setNumberOfThingsInRoom(numberOfThingsWantedInRoom);
+			assertTrue(false);
+		}//end try
+		
+		catch (IllegalArgumentException e)
+		{
+			assertTrue(true);
+		}//end catch
+		
+	}//end testSetNumberOfThingsInRoom_ShouldThrowExceptionIfLessThan0
 	
 }//end RoomTest

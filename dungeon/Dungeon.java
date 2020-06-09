@@ -253,9 +253,11 @@ public class Dungeon
 	{
 		return this.dungeon;
 	}//end getDungeon()
-	public Room getRoom(int row, int col) {
+	
+	public Room getRoom(int row, int col) 
+	{
 		return this.dungeon[row][col];
-	}
+	}//end getRoom
 
 	public int[] getEntranceLocation()
 	{
@@ -386,15 +388,18 @@ public class Dungeon
 	}//end battle method
 	
 	public int[] getHeroLocation()
-
 	{
 		return this.heroLocation;
 	}//end getHeroLocation
 
-	public int getDUNGEON_COLUMNS() {
+	public int getDUNGEON_COLUMNS() 
+	{
 		return this.DUNGEON_COLUMNS;
-	}
-	public int getDUNGEON_ROWS() {
+	}//end getDUNGEON_COLUMNS
+	
+	public int getDUNGEON_ROWS() 
+	{
 		return this.DUNGEON_COLUMNS;
-	}
-}//end RoomFactory Class
+	}//end getDUNGEON_ROWS
+	
+}//end Dungeon Class

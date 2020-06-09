@@ -8,10 +8,10 @@ import java.util.regex.*;
 class DungeonTest {
 
 	@Test
-	void testDungeonForOnlyOneEntrance() 
+	void testDungeonForOnlyOneEntrance_ShouldBeTrueIfResultsOnlyFindsOneEntrance() 
 	{
 		System.out.println("--------------------------------------------------");
-		System.out.println("-----testDungeonForOnlyOneEntrance-----");
+		System.out.println("-----testDungeonForOnlyOneEntrance_ShouldBeTrueIfResultsOnlyFindsOneEntrance-----");
 		Dungeon testDungeon = new Dungeon();
 		Room [][] dungeonResults = testDungeon.getDungeon();
 //		System.out.println(testDungeon.printFullDungeon());
@@ -28,13 +28,13 @@ class DungeonTest {
 		
 		System.out.println("Entrance results: " + results);
 		assertTrue(results == 1);	
-	}//end testDungeonForOnlyOneEntrance
+	}//end testDungeonForOnlyOneEntrance_ShouldBeTrueIfResultsOnlyFindsOneEntrance
 	
 	@Test
-	void testDungeonForOnlyOneExit() 
+	void testDungeonForOnlyOneExit_ShouldBeTrueIfResultsOnlyFindsOneExit() 
 	{
 		System.out.println("--------------------------------------------------");
-		System.out.println("-----testDungeonForOnlyOneExit-----");
+		System.out.println("-----testDungeonForOnlyOneExit_ShouldBeTrueIfResultsOnlyFindsOneExit-----");
 		Dungeon testDungeon = new Dungeon();
 		Room [][] dungeonResults = testDungeon.getDungeon();
 //		System.out.println(testDungeon.printFullDungeon());
@@ -51,13 +51,13 @@ class DungeonTest {
 		
 		System.out.println("Exit results: " + results);
 		assertTrue(results == 1);	
-	}//end testDungeonForOnlyOneExit
+	}//end testDungeonForOnlyOneExit_ShouldBeTrueIfResultsOnlyFindsOneExit
 	
 	@Test
-	void testDungeonForFourPillars() 
+	void testDungeonForFourPillars_ShouldBeTrueIfResultsFindsOnlyFourPillarsNotLessNotMore() 
 	{
 		System.out.println("--------------------------------------------------");
-		System.out.println("-----testDungeonForFourPillars-----");
+		System.out.println("-----testDungeonForFourPillars_ShouldBeTrueIfResultsFindsOnlyFourPillarsNotLessNotMore-----");
 		Dungeon testDungeon = new Dungeon();
 		Room [][] dungeonResults = testDungeon.getDungeon();
 //		System.out.println(testDungeon.printFullDungeon());
@@ -73,13 +73,13 @@ class DungeonTest {
 		}//end for row
 		
 		assertTrue(results == 4);	
-	}//end testDungeonForFourPillars
+	}//end testDungeonForFourPillars_ShouldBeTrueIfResultsFindsOnlyFourPillarsNotLessNotMore
 
 	@Test
-	void testingIfPrintFullDungeonPrintsOutProperly() 
+	void testingIfPrintFullDungeonPrintsOutProperly_ShouldBeTrueIfFalseCountCounterDoesNotTrigger() 
 	{
 		System.out.println("--------------------------------------------------");
-		System.out.println("-----testingIfPrintFullDungeonPrintsOutProperly-----");
+		System.out.println("-----testingIfPrintFullDungeonPrintsOutProperly_ShouldBeTrueIfFalseCountCounterDoesNotTrigger-----");
 		Dungeon testDungeon = new Dungeon();
 		String dungeonString = testDungeon.printFullDungeon();
 //		System.out.println(testDungeon.printFullDungeon());
@@ -110,13 +110,13 @@ class DungeonTest {
 			falseCount++;
 
 		assertTrue(falseCount == 0);
-	}//testing the full print out of dungeon
+	}//end testingIfPrintFullDungeonPrintsOutProperly_ShouldBeTrueIfFalseCountCounterDoesNotTrigger
 
 	@Test
-	void testGetEntranceLocation()
+	void testGetEntranceLocation_ShouldBeTrueIfGetEntranceLocationMatchesTheRowAndColumnFound()
 	{
 		System.out.println("--------------------------------------------------");
-		System.out.println("-----testGetEntranceLocation-----");
+		System.out.println("-----testGetEntranceLocation_ShouldBeTrueIfGetEntranceLocationMatchesTheRowAndColumnFound-----");
 		Dungeon testDungeon = new Dungeon();
 		Room [][] dungeonResults = testDungeon.getDungeon();
 //		System.out.println(testDungeon.printFullDungeon());
@@ -139,7 +139,7 @@ class DungeonTest {
 		System.out.println("[" + testLocation[0] + "," + testLocation[1] + "]");
 		assertTrue(testLocation[0] == dungeonRow && testLocation[1] == dungeonColumn);
 		
-	}//end testGetEntranceLocation()
+	}//end testGetEntranceLocation_ShouldBeTrueIfGetEntranceLocationMatchesTheRowAndColumnFound()
 	
 	@Test
 	void testNewLocation_HeroLocationShouldBeUpdatedToNewCordinatesThatAreEntered()

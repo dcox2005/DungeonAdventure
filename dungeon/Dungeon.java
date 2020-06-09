@@ -387,8 +387,15 @@ public class Dungeon
 	}//end battle method
 	
 	public int[] getHeroLocation()
+
 	{
 		return this.heroLocation;
 	}//end getHeroLocation
-	
+
+	public int getDUNGEON_COLUMNS() {
+		return this.DUNGEON_COLUMNS;
+	}
+	public int getDUNGEON_ROWS() {
+		return this.DUNGEON_COLUMNS;
+	}
 }//end RoomFactory Class

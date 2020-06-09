@@ -50,16 +50,17 @@ public class DungeonAdventure
 	{
 		Hero theHero;
 		Dungeon theDungeon;
-		
+		printInstruction();
 		
 		do
 		{	theHero = HeroFactory.createNewHero(); //chooseHero();
 			theDungeon = new Dungeon();
-		  
+			
 		   
 		    do{ int [] local = theDungeon.getHeroLocation();
 		    	Room start = theDungeon.getRoom(local[0], local[1]);
 		    	System.out.print("your are here \n" + start.toString() +"\n");
+		    	System.out.println("0. Get Status");
 		    	System.out.println("1. Go North ^");
 		    	System.out.println("2. Go East >");
 		    	System.out.println("3. Go South v");
@@ -73,15 +74,20 @@ public class DungeonAdventure
 		    
 
 		    switch (choice){	
-		   
+		    
+		    	case 0: System.out.print(theHero.getName() + "has" + theHero.getHitPoints() +" hit points " + 
+		    	theHero.getnumOfHealingPotion() + " healing potions \n " + theHero.getnumOfVisionPotion() + "vision potions and has found" +
+		    			theHero.getNumOfPillarsFound() );
+						theDungeon.newLocation(theHero, local[0] - 1, local[1]);
+						break;
 			    case 1: local = theDungeon.getHeroLocation();
-	    				theDungeon.newLocation(theHero, local[0] + 1, local[1]);
-	    				break;
+	    				theDungeon.newLocation(theHero, local[0] - 1, local[1]);
+	    				break;  
 			    case 2: local = theDungeon.getHeroLocation();
 			    		theDungeon.newLocation(theHero, local[0], local[1]+1);
 			    		break;
 			    case 3: local = theDungeon.getHeroLocation();
-	    				theDungeon.newLocation(theHero, local[0] - 1, local[1]);
+	    				theDungeon.newLocation(theHero, local[0] + 1, local[1]);
 	    				break;
 			    case 4: local = theDungeon.getHeroLocation();
 	    				theDungeon.newLocation(theHero, local[0], local[1] - 1);
@@ -90,7 +96,7 @@ public class DungeonAdventure
 			    		break;
 			    case 6: theHero.UseHealing();
 			    		break;
-			    case 7: System.out.print(theDungeon.printFullDungeon());
+			    case 19: System.out.print(theDungeon.printFullDungeon());
 		        		break;
 			    default:
 			        System.out.println("invalid choice!");
@@ -107,9 +113,22 @@ playAgain allows gets choice from user to play another game.  It returns
 true if the user chooses to continue, false otherwise.
 ---------------------------------------------------------------------*/
 	
+	private static void printInstruction() {
+		System.out.println("Welcome to Dungeon Adventure");
+		System.out.println("First you will select a character");
+		System.out.println("Next you will select an awesome name");
+		System.out.println("You will be able to move North, South, East, West");
+		System.out.println("You will be collect the 4 Pillars of OO and find the exit to win");
+		System.out.print( "Some Things to know: \n M - Multiple Items\n P - Pit \n I - Entrance (In) \n"
+				+ " O - Exit (Out)\n V - Vision Potion \n H - Healing Potion\n E - Empty Room\n X - Monster");
+		System.out.println("Good Luck, The adventure begins");
+		
+	}
+
 	public static boolean playAgain()
 	{
 		char again;
+		System.out.println("GAME OVER");
 		System.out.println("Play again (y/n)?");
 		again = Keyboard.readChar();
 		return (again == 'Y' || again == 'y');

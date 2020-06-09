@@ -1,10 +1,9 @@
 package dungeon;
 
-public class HealingPotion
+public class HealingPotion implements BackPackItem
 {
 	private static int MAX_HEALING_VALUE = 15;
 	private static int MIN_HEALING_VALUE = 5;
-	
 	
 	static void useItem(Hero hero) 
 	{

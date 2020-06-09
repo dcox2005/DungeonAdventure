@@ -66,10 +66,10 @@ public class DungeonAdventure
 		    	
 		    	System.out.println("How would you like to continue");
 		    	System.out.println("0. Get Status");
-		    	System.out.println("1. Go North ^");
-		    	System.out.println("2. Go East >");
-		    	System.out.println("3. Go South v");
-		    	System.out.println("4. Go West <");
+		    	System.out.println("1. Go North ");
+		    	System.out.println("2. Go East ");
+		    	System.out.println("3. Go South ");
+		    	System.out.println("4. Go West ");
 		    	if(theHero.getnumOfVisionPotion() > 0)
 		    	System.out.println("5. Use Vision Potion");
 		    	if(theHero.getnumOfHealingPotion() > 0)

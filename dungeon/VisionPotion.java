@@ -2,11 +2,6 @@ package dungeon;
 
 public class VisionPotion 
 {
-	public VisionPotion()
-	{
-		
-	}//end Constructor
-	
 	static void useItem(Dungeon dungeon) 
 	{
 		int[] local = dungeon.getHeroLocation();

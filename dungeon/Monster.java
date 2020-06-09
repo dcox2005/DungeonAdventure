@@ -40,22 +40,27 @@ public abstract class Monster extends DungeonCharacter
 		heal();
 	}//end subtractHitPoints()
  
+	public boolean dropHealing() 
+	{
+		int randomNumber = (int)(Math.random() * 100);
+		if (randomNumber < 11)
+			return true;
+		return false;
+	}//end dropHealing()
+	
 /*----------------------------Getters-------------------------------------
  */	
 	
-
 	public double getChanceToHeal() 
 	{
 		return this.chanceToHeal;
 	}//end getChanceToHeal
 	
-
 	public final int getMinHeal() 
 	{
 		return this.minHeal;
 	}//endgetMinHeal
 	
-
 	public final int getMaxHeal() 
 	{
 		return this.maxHeal;
@@ -64,7 +69,6 @@ public abstract class Monster extends DungeonCharacter
 /*----------------------------Setters-------------------------------------
  */	
 	
-
 	public void setChanceToHeal(final double chanceToHeal) 
 	{
 		if (chanceToHeal < 0)
@@ -73,7 +77,6 @@ public abstract class Monster extends DungeonCharacter
 		this.chanceToHeal = chanceToHeal;
 	}//end setChanceToHeal
 	
-
 	public void setMinHeal(final int minHeal) 
 	{
 		if (minHeal < 0)
@@ -82,7 +85,6 @@ public abstract class Monster extends DungeonCharacter
 		this.minHeal = minHeal;
 	}//end setMinHeal
 	
-
 	public void setMaxHeal(final int maxHeal) 
 	{
 		if (maxHeal < 0)
@@ -94,11 +96,4 @@ public abstract class Monster extends DungeonCharacter
 		this.maxHeal = maxHeal;
 	}//end setMaxHeal
 	
-	public boolean dropHealing() {
-		int randomNumber = (int)(Math.random() * 100);
-		if (randomNumber < 11)
-			return true;
-		return false;
-	}
-
 }//end Monster class

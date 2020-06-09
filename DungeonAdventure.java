@@ -114,7 +114,7 @@ public class DungeonAdventure
 		}while ((!theHero.victory(theDungeon)) && !theHero.defeated());
 		
 	}while(playAgain());
-
+		System.out.println("Thanks For Playing!");
     }//end main method
     
 /*-------------------------------------------------------------------

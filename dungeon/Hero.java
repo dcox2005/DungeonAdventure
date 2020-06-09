@@ -84,18 +84,19 @@ This method is called by: subtractHitPoints()
 					    System.out.println("2. " + this.specialAbility.getName());
 					    System.out.print("Choose an option: ");
 					    choice = Keyboard.readInt();
+					
+
+					    switch (choice)
+					    {
+						    case 1: attack(opponent);
+						        break;
+						    case 2: specialAbility.preform(this, opponent);
+						        break;
+						    default:
+						        System.out.println("invalid choice!");
+					    }//end switch
+
 					} while(choice != 1 || choice != 2);
-
-				    switch (choice)
-				    {
-					    case 1: attack(opponent);
-					        break;
-					    case 2: specialAbility.preform(this, opponent);
-					        break;
-					    default:
-					        System.out.println("invalid choice!");
-				    }//end switch
-
 					 this.setNumTurns(this.getNumTurns() - 1);
 			if (this.getNumTurns() > 0)
 			    System.out.println("Number of turns remaining is: " + this.getNumTurns());

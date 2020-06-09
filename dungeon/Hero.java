@@ -97,7 +97,7 @@ This method is called by: subtractHitPoints()
 			if (this.getNumTurns() > 0)
 			    System.out.println("Number of turns remaining is: " + this.getNumTurns());
 
-		}while(this.getNumTurns() > 0);
+		}while(this.getNumTurns() > 0 && opponent.getHitPoints() > 0);
 
 		    }//end battleChoices method
 	

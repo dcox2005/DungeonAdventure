@@ -270,6 +270,7 @@ public class Dungeon
 				{
 					location[0] = row;
 					location[1] = column;
+					
 				}//end if entrance
 				
 			}//end column for loop

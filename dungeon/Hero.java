@@ -76,14 +76,16 @@ This method is called by: subtractHitPoints()
 
 		System.out.println("Number of turns this round is: " + numTurns);
 
-				do
-				{
+				
 					do
 					{
 					    System.out.println("1. Attack Opponent");
 					    System.out.println("2. " + this.specialAbility.getName());
 					    System.out.print("Choose an option: ");
+					    do
+						{
 					    choice = Keyboard.readInt();
+						} while(choice != 1 || choice != 2);
 					
 
 					    switch (choice)
@@ -96,7 +98,7 @@ This method is called by: subtractHitPoints()
 						        System.out.println("invalid choice!");
 					    }//end switch
 
-					} while(choice != 1 || choice != 2);
+				
 					 this.setNumTurns(this.getNumTurns() - 1);
 			if (this.getNumTurns() > 0)
 			    System.out.println("Number of turns remaining is: " + this.getNumTurns());

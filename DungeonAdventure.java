@@ -3,46 +3,50 @@ import dungeon.*;
 /**
  * Title: Dungeon.java
  *
- * Description: Driver file for Heroes and Monsters project
- *
- * Copyright:    Copyright (c) 2001
- * Company: Code Dogs Inc.
- * I.M. Knurdy
- *
- * History:
- *  11/4/2001: Wrote program
- *    --created DungeonCharacter class
- *    --created Hero class
- *    --created Monster class
- *    --had Hero battle Monster
- *    --fixed attack quirks (dead monster can no longer attack)
- *    --made Hero and Monster abstract
- *    --created Warrior
- *    --created Ogre
- *    --made Warrior and Ogre battle
- *    --added battleChoices to Hero
- *    --added special skill to Warrior
- *    --made Warrior and Ogre battle
- *    --created Sorceress
- *    --created Thief
- *    --created Skeleton
- *    --created Gremlin
- *    --added game play features to Dungeon.java (this file)
- *  11/27/2001: Finished documenting program
- * version 1.0
+ * Work:
+ * 
+ * Team: 
+ * Held twice weekly meetings to discuss project and assign work
+ * worked together to adjust stats and design structures
+ * provided feedback and assisted eachother as needed
+ * -------------------------------------------------------------------
+ * David Cox Work:
+- created new Archer class and assigned discussed stats.
+- created new Barbarian class and assigned discussed stats
+- created new Room class with all methods
+- created new Dungeon class with almost all methods. Some methods were added by others to accomodate the needs of other classes.
+- wrote JUnit for Room class
+- wrote JUnit for Dungeon class
+- updated UML to current status, used the original UML that was worked on by all teammates from earlier project.
+- created new BackPackItem interface, used as a reference only for now. Meant for future expandability
+- created base for new PillarOfOO class, just wrote the outline. Methods were written by other teammates
+- created base for new VisionPotion class, just wrote the outline. Methods were written by other teammates
+- created base for new HealingPotion class, just wrote the outline. Methods were written by other teammates
+-------------------------------------------------------------------------------------------------------------
+Darrik Teller Work:
+-Created new Kitten Class and assigned discussed stats
+-Created new BabyDragon Class and assigned discussed stats
+-Created Axe Class and all methods
+-Created Bow Class and all methods
+-Created Affection Class and all methods
+-Created Dungeon Adventure Class and methods
+-Wrote Vision Potion Method
+-Wrote Healing Potion method
+-Wrote helper methods that allowed for smooth gamplay in hero class
+
+Justin Plett work:
+    •    Creation of attack interface with the use of flyweight pattern
+    •    Creation of multi shot attack 
+    •    Creation of fields for PillarOO and all potions within the hero class along 
+    	 with there accompanying getters and setters
+    •    Creation of junit tests for the attack different attack methods to test whether the various 
+    	 attacks when performed worked.
+    •    Created string for useitem in pillarOfOO.
+    •    Other small simple various changes not really impacting overall running of program
+
  */
 
-/*
-  This class is the driver file for the Heroes and Monsters project.  It will
-  do the following:
 
-  1.  Allow the user to choose a hero
-  2.  Randomly select a monster
-  3.  Allow the hero to battle the monster
-
-  Once a battle concludes, the user has the option of repeating the above
-
-*/
 
 public class DungeonAdventure
 {
@@ -128,6 +132,7 @@ true if the user chooses to continue, false otherwise.
 				+ " O - Exit (Out)\n V - Vision Potion \n H - Healing Potion\n E - Empty Room\n X - Monster\n"
 				+ " Y - Pillar of OO\n");
 		System.out.println("Good Luck, The adventure begins");
+		System.out.println("\nView whole Dungeon is 19\n");
 		
 	}
 

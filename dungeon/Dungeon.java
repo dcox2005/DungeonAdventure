@@ -293,7 +293,7 @@ public class Dungeon
 				this.heroLocation[1] + "]");
 		Room room = this.dungeon[this.heroLocation[0]][this.heroLocation[1]];
 		room.setHero(hero);
-		
+		System.out.println(room.toString());
 		if (room.getNumberOfThingsInRoom() == 0)
 		{
 			System.out.println("The room is empty");
@@ -333,7 +333,6 @@ public class Dungeon
 		{
 			System.out.println(hero.getName() + " found a monster in the room. ");
 			System.out.println(hero.getName() + " will now have to battle " + room.getEnemy().getName());
-			//TODO What to do when an enemy is in the room
 			battle(hero, room.getEnemy());
 			room.setEnemy(null);
 		}//end if enemy

@@ -9,6 +9,11 @@ public class SupriseAttack implements Attack {
 
 	@Override
 	public void preform(DungeonCharacter attacker, DungeonCharacter opponent) {
+		
+		if(attacker == null || opponent == null) {
+			throw new IllegalArgumentException("Either attacker or opponent were passed in as null");
+		}
+		
 		double surprise = Math.random();
 		if (surprise <= .4)
 		{ 

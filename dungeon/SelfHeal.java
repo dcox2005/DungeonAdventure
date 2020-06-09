@@ -11,11 +11,16 @@ public class SelfHeal implements Attack {
 	}
 
 	@Override
-	public void preform(DungeonCharacter attacker, DungeonCharacter opponent) {
+	public void preform(DungeonCharacter attacking, DungeonCharacter opponent) {
+		
+		if(attacking == null || opponent == null) {
+			throw new IllegalArgumentException("Either attacker or opponent were passed in as null");
+		}
+		
 		int hPoints;
 		hPoints = (int)(Math.random() * (MAX_SELFHEAL_VALUE - MIN_SELFHEAL_VALUE + 1)) + MIN_SELFHEAL_VALUE;
-		attacker.addHitPoints(hPoints);
-		System.out.println(attacker.getName() + " added [" + hPoints + "] points.\n" + "Total hit points remaining are: " + attacker.getHitPoints());
+		attacking.addHitPoints(hPoints);
+		System.out.println(attacking.getName() + " added [" + hPoints + "] points.\n" + "Total hit points remaining are: " + attacking.getHitPoints());
 		System.out.println();
 	}
 

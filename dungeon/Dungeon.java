@@ -336,6 +336,7 @@ public class Dungeon
 		
 		if (room.hasExit())
 		{
+			System.out.println("You have found the dungeon exit.");
 			if (hero.getNumOfPillarsFound() >= 4)
 			{
 				System.out.println("You have reached the exit with all the pillars. You win.");

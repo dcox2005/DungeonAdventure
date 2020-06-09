@@ -93,5 +93,12 @@ public abstract class Monster extends DungeonCharacter
 		
 		this.maxHeal = maxHeal;
 	}//end setMaxHeal
+	
+	public boolean dropHealing() {
+		int randomNumber = (int)(Math.random() * 100);
+		if (randomNumber < 11)
+			return true;
+		return false;
+	}
 
 }//end Monster class

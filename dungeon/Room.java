@@ -276,6 +276,6 @@ public class Room
 	{
 		this.westDoor = westDoor;
 	}//end setWestDoor
-	
+		
 	
 }//end Room class

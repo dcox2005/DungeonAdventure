@@ -171,4 +171,26 @@ This method is called by: subtractHitPoints()
 		this.numOfPillarsFound = numOfPillars;
 	}
 	
+	public void UseHealing() {
+		HealingPotion.useItem(this);
+		this.numOfHealingPotion = this.numOfHealingPotion -1;
+		
+	}
+	
+	public void UseVision(Dungeon dungeon) {
+		VisionPotion.useItem(dungeon);
+		this.numOfVisionPotion = this.numOfVisionPotion -1;
+	}
+
+	public boolean victory(Dungeon theDungeon) {
+		int[] local = theDungeon.getHeroLocation();
+		Room[][] room = theDungeon.getDungeon();
+		if(room[local[0]][local[1]].hasExit() && this.getNumOfPillarsFound() == 4)
+			return true;
+		return false;
+	}
+	public boolean defeated() {
+		return !this.isAlive(); 
+	}
+	
 }//end Hero class

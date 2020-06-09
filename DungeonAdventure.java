@@ -49,14 +49,56 @@ public class DungeonAdventure
     public static void main(String[] args)
 	{
 		Hero theHero;
-		Monster theMonster;
+		Dungeon theDungeon;
+		
+		
 		do
-		{
-		    theHero = HeroFactory.createNewHero(); //chooseHero();
-		    theMonster = MonsterFactory.createMonster(); //generateMonster();
-			battle(theHero, theMonster);
+		{	theHero = HeroFactory.createNewHero(); //chooseHero();
+			theDungeon = new Dungeon();
+		  
+		   
+		    do{ int [] local = theDungeon.getHeroLocation();
+		    	Room start = theDungeon.getRoom(local[0], local[1]);
+		    	System.out.print("your are here \n" + start.toString() +"\n");
+		    	System.out.println("1. Go North ^");
+		    	System.out.println("2. Go East >");
+		    	System.out.println("3. Go South v");
+		    	System.out.println("4. Go West <");
+		    	if(theHero.getnumOfVisionPotion() > 0)
+		    	System.out.println("5. Use Vision Potion");
+		    	if(theHero.getnumOfHealingPotion() > 0)
+			    System.out.println("6. Use Healing Potion");
+		    	System.out.print("Choose an option: ");
+		    	int choice = Keyboard.readInt();
+		    
 
-		}while (playAgain());
+		    switch (choice){	
+		   
+			    case 1: local = theDungeon.getHeroLocation();
+	    				theDungeon.newLocation(theHero, local[0] + 1, local[1]);
+	    				break;
+			    case 2: local = theDungeon.getHeroLocation();
+			    		theDungeon.newLocation(theHero, local[0], local[1]+1);
+			    		break;
+			    case 3: local = theDungeon.getHeroLocation();
+	    				theDungeon.newLocation(theHero, local[0] - 1, local[1]);
+	    				break;
+			    case 4: local = theDungeon.getHeroLocation();
+	    				theDungeon.newLocation(theHero, local[0], local[1] - 1);
+	    				break;
+			    case 5: theHero.UseVision(theDungeon);
+			    		break;
+			    case 6: theHero.UseHealing();
+			    		break;
+			    case 7: System.out.print(theDungeon.printFullDungeon());
+		        		break;
+			    default:
+			        System.out.println("invalid choice!");
+		    }//end switch
+
+		}while ((!theHero.victory(theDungeon)) && !theHero.defeated());
+		
+	}while(playAgain());
 
     }//end main method
     
@@ -73,12 +115,13 @@ true if the user chooses to continue, false otherwise.
 		return (again == 'Y' || again == 'y');
 	}//end playAgain method
 
-/*-------------------------------------------------------------------
+/*
+ * -------------------------------------------------------------------
 battle is the actual combat portion of the game.  It requires a Hero
 and a Monster to be passed in.  Battle occurs in rounds.  The Hero
 goes first, then the Monster.  At the conclusion of each round, the
 user has the option of quitting.
----------------------------------------------------------------------*/
+---------------------------------------------------------------------
 	
 	public static void battle(Hero theHero, Monster theMonster)
 	{
@@ -111,7 +154,7 @@ user has the option of quitting.
 			System.out.println("Quitters never win ;-)");
 
 	}//end battle method
-
+*/
 }//end Dungeon class
 
 

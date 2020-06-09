@@ -1,17 +1,12 @@
 package dungeon;
 
-public class HealingPotion implements BackPackItem 
+public class HealingPotion
 {
-	private int MAX_HEALING_VALUE;
-	private int MIN_HEALING_VALUE;
+	private static int MAX_HEALING_VALUE = 15;
+	private static int MIN_HEALING_VALUE = 5;
 	
-	public HealingPotion()
-	{
-		MAX_HEALING_VALUE = 15;
-		MIN_HEALING_VALUE = 5;
-	}//end constructor
 	
-	public void useItem(Hero hero) 
+	static void useItem(Hero hero) 
 	{
 		int healthPoints;
 		healthPoints = (int)(Math.random() * (MAX_HEALING_VALUE - MIN_HEALING_VALUE + 1)) + MIN_HEALING_VALUE;

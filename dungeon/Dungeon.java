@@ -253,6 +253,9 @@ public class Dungeon
 	{
 		return this.dungeon;
 	}//end getDungeon()
+	public Room getRoom(int row, int col) {
+		return this.dungeon[row][col];
+	}
 
 	public int[] getEntranceLocation()
 	{
@@ -330,6 +333,7 @@ public class Dungeon
 			System.out.println(hero.getName() + " found a monster in the room. ");
 			System.out.println(hero.getName() + " will now have to battle " + room.getEnemy().getName());
 			//TODO What to do when an enemy is in the room
+			battle(hero, room.getEnemy());
 			room.setEnemy(null);
 		}//end if enemy
 		
@@ -349,6 +353,38 @@ public class Dungeon
 		}//end if exit
 		
 	}//end newLocations()
+	
+	public static void battle(Hero theHero, Monster theMonster)
+	{
+		char pause = 'p';
+		System.out.println(theHero.getName() + " battles " +
+							theMonster.getName());
+		System.out.println("---------------------------------------------");
+
+		//do battle
+		while (theHero.isAlive() && theMonster.isAlive())
+		{
+		    //hero goes first
+			theHero.battleChoices(theMonster);
+
+			
+			if (theMonster.isAlive())
+			    theMonster.attack(theHero);
+
+		}//end battle loop
+
+		if (!theMonster.isAlive()) {
+		    System.out.println(theHero.getName() + " was victorious!");
+		    if(theMonster.dropHealing()) {
+		    	theHero.setNumOfHealingPotion(theHero.getnumOfHealingPotion() +1);
+		    	System.out.println(theMonster.getName() + " Dropped a Healing Potion!, you picked it up");
+		    }
+		}
+		else if (!theHero.isAlive())
+			System.out.println(theHero.getName() + " was defeated :-(");
+		
+
+	}//end battle method
 	
 	public int[] getHeroLocation()
 	{

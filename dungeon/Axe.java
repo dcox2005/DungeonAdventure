@@ -19,7 +19,7 @@ private String name;
 	@Override
 	public String toString() 
 	{
-		return " Swings thier massive battle axe at ";
+		return " swings thier massive battle axe at ";
 	}//end weaponName
 
 }

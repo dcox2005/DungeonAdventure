@@ -354,7 +354,7 @@ public class Dungeon
 		
 	}//end newLocations()
 	
-	public static void battle(Hero theHero, Monster theMonster)
+	private void battle(Hero theHero, Monster theMonster)
 	{
 		char pause = 'p';
 		System.out.println(theHero.getName() + " battles " +

@@ -2,14 +2,11 @@ package dungeon;
 
 public class PillarOfOO implements BackPackItem 
 {
-	public PillarOfOO()
-	{
-		
-	}//end Constructor
+
 	
-	public void useItem(Hero hero)
+	static void useItem(Hero hero)
 	{
-		// TODO Auto-generated method stub
+		System.out.println( "This is a pillar of OO you need four to use a pillar of OO");
 	}//end useItem()
 
 }//end PillarOfOO Class

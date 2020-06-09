@@ -78,10 +78,13 @@ This method is called by: subtractHitPoints()
 
 				do
 				{
-				    System.out.println("1. Attack Opponent");
-				    System.out.println("2. " + this.specialAbility.getName());
-				    System.out.print("Choose an option: ");
-				    choice = Keyboard.readInt();
+					do
+					{
+					    System.out.println("1. Attack Opponent");
+					    System.out.println("2. " + this.specialAbility.getName());
+					    System.out.print("Choose an option: ");
+					    choice = Keyboard.readInt();
+					} while(choice != 1 || choice != 2);
 
 				    switch (choice)
 				    {
